@@ -8,7 +8,7 @@ sap.ui.define([
     return Controller.extend("project4.controller.View1", {
 
         onInit: function () {
-            // Initialization logic, if any
+            // Initialization if needed
         },
 
         onApplyFilter: function () {
@@ -40,19 +40,11 @@ sap.ui.define([
         },
 
         onCreateRequest: function () {
-            // Logic to open a create dialog or navigate to create screen
             sap.m.MessageToast.show("Create Request clicked");
         },
 
-        onRequestPress: function (oEvent) {
-            // Optional: navigate to details view for selected item
-            const oContext = oEvent.getSource().getBindingContext();
-            const sRequestId = oContext.getProperty("ID");
-
-            // Example: navigate to View2 with request ID
-            this.getOwnerComponent().getRouter().navTo("View2", {
-                requestId: sRequestId
-            });
+        onRequestPress: function () {
+            sap.m.MessageToast.show("Row clicked");
         },
 
         onNavigateToView2: function () {
