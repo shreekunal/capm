@@ -3,34 +3,60 @@
     xmlns:mvc="sap.ui.core.mvc"
     xmlns="sap.m"
     xmlns:core="sap.ui.core"
-    xmlns:fb="sap.ui.comp.filterbar"
-    xmlns:f="sap.ui.layout.form"
-    xmlns:smartFilterBar="sap.ui.comp.smartfilterbar"
-    displayBlock="true">
-
+    displayBlock="true"
+>
     <Page id="requestListPage" showFooter="false">
 
-        <!-- Smart Filter Bar -->
-        <!-- <smartFilterBar:SmartFilterBar
-            id="smartFilterBar"
-            entitySet="ProcurementRequests"
-            useToolbar="true"
-            useDateRangeType="true"
-            persistencyKey="SmartFilterBarKey"
-            header="Filter Procurement Requests" /> -->
+        <!-- Navigation Button to View2 -->
+        <Toolbar>
+            <Button
+                text="Go to View 2"
+                icon="sap-icon://navigation-right-arrow"
+                press="onNavigateToView2"
+            />
+        </Toolbar>
+
+        <!-- Custom Filter Toolbar -->
+        <Toolbar>
+            <Label text="Department:" />
+            <Input id="filterDepartment" width="150px" />
+
+            <Label text="Supplier:" />
+            <Input id="filterSupplier" width="150px" />
+
+            <Label text="Status:" />
+            <Select id="filterStatus" width="120px">
+                <items>
+                    <core:Item key="" text="All" />
+                    <core:Item key="New" text="New" />
+                    <core:Item key="Submitted" text="Submitted" />
+                    <core:Item key="Approved" text="Approved" />
+                    <core:Item key="Ordered" text="Ordered" />
+                    <core:Item key="Received" text="Received" />
+                </items>
+            </Select>
+
+            <ToolbarSpacer />
+
+            <Button text="Apply Filter" press="onApplyFilter" />
+        </Toolbar>
 
         <!-- Table -->
         <Table
             id="requestTable"
-            items="{/ProcurementRequests}"
+            items="{ path: '/ProcurementRequests' }"
+            mode="SingleSelectMaster"
             inset="false"
-            mode="SingleSelectMaster">
-
+        >
             <headerToolbar>
                 <Toolbar>
                     <Title text="Procurement Request List" />
                     <ToolbarSpacer />
-                    <Button text="Create Request" type="Emphasized" press="onCreateRequest" />
+                    <Button
+                        text="Create Request"
+                        type="Emphasized"
+                        press="onCreateRequest"
+                    />
                 </Toolbar>
             </headerToolbar>
 
@@ -46,13 +72,14 @@
                 <ColumnListItem type="Navigation" press="onRequestPress">
                     <cells>
                         <Text text="{ID}" />
-                        <Text text="{department}" />
-                        <Text text="{supplier}" />
+                        <Text text="{department/departmentName}" />
+                        <Text text="{supplier/name}" />
                         <Text text="{requestDate}" />
                         <ObjectStatus text="{status}" />
                     </cells>
                 </ColumnListItem>
             </items>
         </Table>
+
     </Page>
 </mvc:View>

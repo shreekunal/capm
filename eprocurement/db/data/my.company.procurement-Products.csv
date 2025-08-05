@@ -1,21 +1,21 @@
 ID,name,description,category,price,unit,isActive
-PROD1,Laptop 15 Inch,Core i7, 16GB RAM,Electronics,1200.00,EA,1
-PROD2,Copy Paper Box,500 sheets A4 Stationery,Office Supplies,25.50,BOX,1
-PROD3,Industrial Printer,Label and barcode printer,Electronics,650.00,EA,0
-PROD4,Desk Chair,Adjustable ergonomic chair,Furniture,180.00,EA,1
-PROD5,Whiteboard Large,Magnetic 120x90cm,Office Supplies,95.99,EA,1
-PROD6,Cleaning Liquid,Biodegradable cleaner 5L,Chemical,22.00,L,1
-PROD7,Coffee Machine,Automatic, kitchen appliance,Electronics,320.50,EA,1
-PROD8,USB Mouse,Optical USB mouse,Accessories,12.85,EA,1
-PROD9,Heavy-duty Shelves,Steel shelving,Warehouse,205.00,SET,1
-PROD10,Legal Pads,A4 yellow pads,Stationery,7.30,PACK,1
-PROD11,Phone Headset,Wireless office headset,Electronics,89.99,EA,1
-PROD12,Desk Lamp,LED adjustable lamp,Accessories,39.95,EA,1
-PROD13,Monitor 27 Inch,Full HD screen,Electronics,220.00,EA,1
-PROD14,Calculator,Standard business calculator,Office Supplies,15.60,EA,1
-PROD15,Filing Cabinet,Metal 4-drawer,Office Supplies,175.00,EA,1
-PROD16,Sticky Notes,12 pads, assorted color,Office Supplies,8.25,PACK,1
-PROD17,Mailing Box,Small shipping box,Warehouse,2.35,EA,1
-PROD18,First Aid Kit,Complete workplace kit,Medical,60.00,EA,1
-PROD19,Toner Cartridge,Black,Electronics,53.90,EA,1
-PROD20,Extension Cord,5m electric cord,Electronics,18.75,EA,1
+PROD1,Laptop 15 Inch,"Core i7, 16GB RAM",Electronics,1200.00,EA,1
+PROD2,Copy Paper Box,"500 sheets A4 Stationery",Office Supplies,25.50,BOX,1
+PROD3,Industrial Printer,"Label and barcode printer",Electronics,650.00,EA,0
+PROD4,Desk Chair,"Adjustable ergonomic chair",Furniture,180.00,EA,1
+PROD5,Whiteboard Large,"Magnetic 120x90cm",Office Supplies,95.99,EA,1
+PROD6,Cleaning Liquid,"Biodegradable cleaner 5L",Chemical,22.00,L,1
+PROD7,Coffee Machine,"Automatic, kitchen appliance",Electronics,320.50,EA,1
+PROD8,USB Mouse,"Optical USB mouse",Accessories,12.85,EA,1
+PROD9,Heavy-duty Shelves,"Steel shelving",Warehouse,205.00,SET,1
+PROD10,Legal Pads,"A4 yellow pads",Stationery,7.30,PACK,1
+PROD11,Phone Headset,"Wireless office headset",Electronics,89.99,EA,1
+PROD12,Desk Lamp,"LED adjustable lamp",Accessories,39.95,EA,1
+PROD13,Monitor 27 Inch,"Full HD screen",Electronics,220.00,EA,1
+PROD14,Calculator,"Standard business calculator",Office Supplies,15.60,EA,1
+PROD15,Filing Cabinet,"Metal 4-drawer",Office Supplies,175.00,EA,1
+PROD16,Sticky Notes,"12 pads, assorted color",Office Supplies,8.25,PACK,1
+PROD17,Mailing Box,"Small shipping box",Warehouse,2.35,EA,1
+PROD18,First Aid Kit,"Complete workplace kit",Medical,60.00,EA,1
+PROD19,Toner Cartridge,"Black",Electronics,53.90,EA,1
+PROD20,Extension Cord,"5m electric cord",Electronics,18.75,EA,1
