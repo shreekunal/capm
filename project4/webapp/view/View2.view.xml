@@ -1,0 +1,83 @@
+<mvc:View
+    controllerName="project4.controller.View2"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:layout="sap.ui.layout"
+    xmlns:m="sap.m"
+    xmlns:uxap="sap.uxap"
+    height="100%">
+
+    <Page id="page">
+
+        <uxap:ObjectPageLayout
+            id="ObjectPageLayout"
+            showTitleInHeaderContent="true"
+            showEditHeaderButton="true"
+            editHeaderButtonPress="handleEditBtnPress"
+            headerContentPinned="true"
+            upperCaseAnchorBar="false">
+
+            <!-- Header Title -->
+            <uxap:headerTitle>
+                <uxap:ObjectPageDynamicHeaderTitle>
+                    <uxap:expandedHeading>
+                        <m:HBox>
+                            <m:Title text="Denise Smith" wrapping="true" />
+                        </m:HBox>
+                    </uxap:expandedHeading>
+                    <uxap:actions>
+                        <m:OverflowToolbarButton icon="sap-icon://edit" text="Edit Header" type="Emphasized" />
+                        <m:OverflowToolbarButton icon="sap-icon://pull-down" text="Show Section" type="Emphasized" />
+                        <m:OverflowToolbarButton icon="sap-icon://show" text="Show State" />
+                        <m:Button text="Toggle Footer" press="toggleFooter" />
+                    </uxap:actions>
+                </uxap:ObjectPageDynamicHeaderTitle>
+            </uxap:headerTitle>
+
+            <!-- Sections -->
+            <uxap:sections>
+
+                <uxap:ObjectPageSection titleUppercase="false" title="Overview">
+                    <uxap:subSections>
+                        <uxap:ObjectPageSubSection title="Profile Info">
+                            <uxap:blocks>
+                                <m:VBox>
+                                    <m:Text text="Name: Denise Smith" />
+                                    <m:Text text="Position: Senior UI Developer" />
+                                    <m:Text text="Location: San Jose, USA" />
+                                </m:VBox>
+                            </uxap:blocks>
+                        </uxap:ObjectPageSubSection>
+                    </uxap:subSections>
+                </uxap:ObjectPageSection>
+
+                <uxap:ObjectPageSection titleUppercase="false" title="Contact">
+                    <uxap:subSections>
+                        <uxap:ObjectPageSubSection title="Social &amp; Communication">
+                            <uxap:blocks>
+                                <m:VBox>
+                                    <m:Link text="LinkedIn Profile" href="https://linkedin.com/in/denisesmith" />
+                                    <m:Link text="Twitter Profile" href="https://twitter.com/denisesmith" />
+                                    <m:Link text="Email: DeniseSmith@sap.com"
+                                            href="mailto:DeniseSmith@sap.com?subject=Hello&amp;body=Hi%20Denise" />
+                                </m:VBox>
+                            </uxap:blocks>
+                        </uxap:ObjectPageSubSection>
+                    </uxap:subSections>
+                </uxap:ObjectPageSection>
+
+            </uxap:sections>
+
+            <!-- Footer -->
+            <uxap:footer>
+                <m:OverflowToolbar>
+                    <m:ToolbarSpacer />
+                    <m:Button type="Accept" text="Accept" />
+                    <m:Button type="Reject" text="Reject" />
+                </m:OverflowToolbar>
+            </uxap:footer>
+
+        </uxap:ObjectPageLayout>
+
+    </Page>
+</mvc:View>

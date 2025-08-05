@@ -1,0 +1,21 @@
+ID,name,contactEmail,phone,registrationDate,status,vatNumber,address,isApproved
+SUP1,Global Tech Solutions,info@globaltech.com,+491234567890,2023-04-12,Approved,DE123456789,Innovation Park 5,1
+SUP2,Greenfield Supplies,contact@greenfieldsupplies.com,+441234567891,2023-02-20,New,UK987654321,88 Green Ave,0
+SUP3,Metro Logistics,support@metrologistics.com,+331234567892,2022-11-03,Blocked,FR112233445,Courier Lane 13,0
+SUP4,Sunrise Equipments,sales@sunriseequip.com,+491112223333,2023-03-01,Approved,DE223344556,12 Tech Blvd,1
+SUP5,Blue Office Supplies,service@blueoffice.com,+441234567800,2023-01-12,New,UK192837465,45 Office Dr,0
+SUP6,Prime Chemicals,orders@primechem.com,+498765432109,2022-12-15,Approved,DE556677889,99 Chemical Rd,1
+SUP7,Redline Tools,info@redline.com,+390123456789,2023-05-20,Approved,IT123987456,Industrial Zone 3,1
+SUP8,Super Cleaners,clean@superclean.com,+331986754321,2023-04-19,Blocked,FR221133445,23 Hygiene St,0
+SUP9,Nova Tech Parts,sales@novatech.com,+497712345678,2023-06-12,Approved,DE112244668,88 Tech Park,1
+SUP10,Silverline Catering,contact@silverline.com,+491122334455,2023-07-08,New,DE101010100,22 Event Lane,0
+SUP11,Alpha Manufacturing,info@alphamfg.com,+491234567801,2022-08-22,New,DE564738291,71 Factory Rd,0
+SUP12,Optima Stationery,sales@optimastat.com,+491234567802,2023-01-18,Approved,DE876543210,16 Pen St,1
+SUP13,Urban Textiles,textiles@urban.com,+491234567803,2023-06-01,Approved,DE192837461,123 Fabric Ave,1
+SUP14,SecureIT,help@secureit.com,+491234567804,2022-10-10,Blocked,DE333333333,9 Lockdown Sq,0
+SUP15,Aqua Supplies,info@aquasup.com,+491234567805,2022-12-23,Approved,DE445566778,7 Waterpark,1
+SUP16,Fresh Foods,orders@freshfoods.com,+491234567806,2023-03-15,New,DE789654123,12 Market St,0
+SUP17,Speedy Couriers,service@speedycouriers.com,+491234567807,2023-02-08,Approved,DE123789456,27 Logistic Ln,1
+SUP18,Pro Lighting,info@prolighting.com,+491234567808,2023-03-27,Approved,DE159753486,193 Shine Blvd,1
+SUP19,PaperWorks,support@paperworks.com,+491234567809,2023-04-10,New,DE246813579,66 White Rd,0
+SUP20,Mountain Hardware,contact@mountainhw.com,+491234567810,2023-05-25,Blocked,DE357159258,888 Trek Ave,0

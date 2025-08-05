@@ -1,0 +1,22 @@
+
+ID,parent_ID,productName,quantity,unit
+RIT1,PRQ1,Laptop 15 Inch,10,EA
+RIT2,PRQ2,Copy Paper Box,100,BOX
+RIT3,PRQ3,Industrial Printer,2,EA
+RIT4,PRQ4,Desk Chair,15,EA
+RIT5,PRQ5,Filing Cabinet,24,EA
+RIT6,PRQ6,Cleaning Liquid,8,L
+RIT7,PRQ7,Industrial Printer,6,EA
+RIT8,PRQ8,Heavy-duty Shelves,30,SET
+RIT9,PRQ9,Legal Pads,40,PACK
+RIT10,PRQ10,Coffee Machine,5,EA
+RIT11,PRQ11,Label Printer,18,EA
+RIT12,PRQ12,Desk Chair,12,EA
+RIT13,PRQ13,Phone Headset,6,EA
+RIT14,PRQ14,Desk Lamp,8,EA
+RIT15,PRQ15,Laptop 15 Inch,3,EA
+RIT16,PRQ16,Desk Chair,25,EA
+RIT17,PRQ17,Filing Cabinet,11,EA
+RIT18,PRQ18,Mailing Box,14,EA
+RIT19,PRQ19,Desk Lamp,13,EA
+RIT20,PRQ20,First Aid Kit,9,EA

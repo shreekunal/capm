@@ -1,0 +1,58 @@
+<mvc:View
+    controllerName="project4.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:fb="sap.ui.comp.filterbar"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:smartFilterBar="sap.ui.comp.smartfilterbar"
+    displayBlock="true">
+
+    <Page id="requestListPage" showFooter="false">
+
+        <!-- Smart Filter Bar -->
+        <!-- <smartFilterBar:SmartFilterBar
+            id="smartFilterBar"
+            entitySet="ProcurementRequests"
+            useToolbar="true"
+            useDateRangeType="true"
+            persistencyKey="SmartFilterBarKey"
+            header="Filter Procurement Requests" /> -->
+
+        <!-- Table -->
+        <Table
+            id="requestTable"
+            items="{/ProcurementRequests}"
+            inset="false"
+            mode="SingleSelectMaster">
+
+            <headerToolbar>
+                <Toolbar>
+                    <Title text="Procurement Request List" />
+                    <ToolbarSpacer />
+                    <Button text="Create Request" type="Emphasized" press="onCreateRequest" />
+                </Toolbar>
+            </headerToolbar>
+
+            <columns>
+                <Column><Text text="Request ID" /></Column>
+                <Column><Text text="Department" /></Column>
+                <Column><Text text="Supplier" /></Column>
+                <Column><Text text="Request Date" /></Column>
+                <Column><Text text="Status" /></Column>
+            </columns>
+
+            <items>
+                <ColumnListItem type="Navigation" press="onRequestPress">
+                    <cells>
+                        <Text text="{ID}" />
+                        <Text text="{department}" />
+                        <Text text="{supplier}" />
+                        <Text text="{requestDate}" />
+                        <ObjectStatus text="{status}" />
+                    </cells>
+                </ColumnListItem>
+            </items>
+        </Table>
+    </Page>
+</mvc:View>

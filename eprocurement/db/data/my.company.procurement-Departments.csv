@@ -1,0 +1,21 @@
+ID,departmentName,description,manager,costCenter
+DEP1,Procurement,Handles supplier relations and purchasing,Anna Smith,COST1001
+DEP2,IT,Technology infrastructure and support,John Roe,COST1003
+DEP3,Finance,Accounting and budget oversight,Lin Chen,COST1005
+DEP4,Marketing,All marketing activities,Emily Turner,COST1007
+DEP5,Human Resources,Handles HR and recruiting,Gary Lee,COST1009
+DEP6,Research & Dev,R&D Projects and innovation,Lisa Wang,COST1002
+DEP7,Production,Manufacturing line supervision,Martin Falck,COST1004
+DEP8,Warehouse,Stock and shipments,Isabel Becker,COST1006
+DEP9,Legal,Contracts and IP,Peter Adams,COST1008
+DEP10,Customer Support,Customer queries and after sales,David Liu,COST1010
+DEP11,Logistics,Manages shipping logistics,Samuel King,COST1001
+DEP12,Facility Mgmt,Facility operations and maintenance,Karen Vo,COST1002
+DEP13,Quality Control,Product and service QA,Shawn Miles,COST1003
+DEP14,Reception,Front desk and call handling,Megan Lee,COST1004
+DEP15,Executive,Strategy and company direction,Paul Remer,COST1005
+DEP16,Engineering,Product design and development,Olga Petrov,COST1006
+DEP17,Compliance,Standards and regulatory,Joan Ma,COST1007
+DEP18,Events,Corporate event planning,Amy Tran,COST1008
+DEP19,Public Relations,Media and public reputation,Phil Grant,COST1009
+DEP20,Security,Building and IT security,Bob Doyle,COST1010

@@ -1,0 +1,21 @@
+ID,department_ID,supplier_ID,quantity,requestedBy,requestDate,status,comments
+PRQ1,DEP1,SUP1,10,Anna Smith,2023-05-01,Submitted,Request for laptops for new employees
+PRQ2,DEP2,SUP2,100,John Roe,2023-05-11,New,Office paper stocks running low
+PRQ3,DEP3,SUP1,2,Lin Chen,2023-06-03,Ordered,Finance department printer replacement
+PRQ4,DEP4,SUP5,15,Emily Turner,2023-04-20,Approved,Purchased chairs for campaign team
+PRQ5,DEP5,SUP7,24,Gary Lee,2023-02-14,Received,HR needs new cabinets
+PRQ6,DEP6,SUP6,8,Lisa Wang,2023-01-18,New,Research cleaning solutions
+PRQ7,DEP7,SUP3,6,Martin Falck,2023-03-22,Submitted,Production requested label printers
+PRQ8,DEP8,SUP9,30,Isabel Becker,2023-06-10,Ordered,Warehouse re-fit shelving units
+PRQ9,DEP9,SUP8,40,Peter Adams,2023-07-05,New,Paper pads for contract documentation
+PRQ10,DEP10,SUP10,5,David Liu,2023-07-12,Submitted,Catering machines for support center
+PRQ11,DEP11,SUP4,18,Samuel King,2023-04-15,Submitted,Label machines for shipping
+PRQ12,DEP12,SUP11,12,Karen Vo,2023-05-23,Approved,Facility chairs for repair zone
+PRQ13,DEP13,SUP12,6,Shawn Miles,2023-06-07,New,Headsets for quality calls
+PRQ14,DEP14,SUP13,8,Megan Lee,2023-07-03,Approved,Reception area lamp order
+PRQ15,DEP15,SUP14,3,Paul Remer,2023-06-18,Blocked,Executive laptop order on hold
+PRQ16,DEP16,SUP15,25,Olga Petrov,2023-03-23,Ordered,Lab stools for R&D
+PRQ17,DEP17,SUP16,11,Joan Ma,2023-02-28,Submitted,Standards compliance files
+PRQ18,DEP18,SUP17,14,Amy Tran,2023-07-06,Approved,Promo bags for event giveaways
+PRQ19,DEP19,SUP18,13,Phil Grant,2023-06-25,Submitted,Lighting equipment for PR conference
+PRQ20,DEP20,SUP19,9,Bob Doyle,2023-01-30,New,First aid kits for security office
