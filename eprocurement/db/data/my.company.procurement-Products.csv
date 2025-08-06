@@ -1,21 +1,21 @@
 ID,name,description,category,price,unit,isActive
-PROD1,Laptop 15 Inch,"Core i7, 16GB RAM",Electronics,1200.00,EA,1
-PROD2,Copy Paper Box,"500 sheets A4 Stationery",Office Supplies,25.50,BOX,1
-PROD3,Industrial Printer,"Label and barcode printer",Electronics,650.00,EA,0
-PROD4,Desk Chair,"Adjustable ergonomic chair",Furniture,180.00,EA,1
-PROD5,Whiteboard Large,"Magnetic 120x90cm",Office Supplies,95.99,EA,1
-PROD6,Cleaning Liquid,"Biodegradable cleaner 5L",Chemical,22.00,L,1
-PROD7,Coffee Machine,"Automatic, kitchen appliance",Electronics,320.50,EA,1
-PROD8,USB Mouse,"Optical USB mouse",Accessories,12.85,EA,1
-PROD9,Heavy-duty Shelves,"Steel shelving",Warehouse,205.00,SET,1
-PROD10,Legal Pads,"A4 yellow pads",Stationery,7.30,PACK,1
-PROD11,Phone Headset,"Wireless office headset",Electronics,89.99,EA,1
-PROD12,Desk Lamp,"LED adjustable lamp",Accessories,39.95,EA,1
-PROD13,Monitor 27 Inch,"Full HD screen",Electronics,220.00,EA,1
-PROD14,Calculator,"Standard business calculator",Office Supplies,15.60,EA,1
-PROD15,Filing Cabinet,"Metal 4-drawer",Office Supplies,175.00,EA,1
-PROD16,Sticky Notes,"12 pads, assorted color",Office Supplies,8.25,PACK,1
-PROD17,Mailing Box,"Small shipping box",Warehouse,2.35,EA,1
-PROD18,First Aid Kit,"Complete workplace kit",Medical,60.00,EA,1
-PROD19,Toner Cartridge,"Black",Electronics,53.90,EA,1
-PROD20,Extension Cord,"5m electric cord",Electronics,18.75,EA,1
+e51f09e2-b298-4e42-aad6-8cfdce7e23c7,Laptop 15 Inch,"Core i7, 16GB RAM",Electronics,1200.00,EA,1
+063b0376-2ea1-4f34-8a94-18c78a4c9970,Copy Paper Box,"500 sheets A4 Stationery",Office Supplies,25.50,BOX,1
+fb9e2db4-4b33-4aa2-bb69-8ff3d4f2f89a,Industrial Printer,"Label and barcode printer",Electronics,650.00,EA,0
+943fd028-2555-45f7-b76b-e2cb0b0a25e5,Desk Chair,"Adjustable ergonomic chair",Furniture,180.00,EA,1
+25c46309-44c0-4dbf-a13f-88e5883404f3,Whiteboard Large,"Magnetic 120x90cm",Office Supplies,95.99,EA,1
+7c929278-0cd4-4cb8-9f5e-9515b4b059ae,Cleaning Liquid,"Biodegradable cleaner 5L",Chemical,22.00,L,1
+183d2823-b373-4d2f-828b-90160d0aa812,Coffee Machine,"Automatic, kitchen appliance",Electronics,320.50,EA,1
+d804dbb8-8ac4-4ac1-9a00-31a4fc2b7a0a,USB Mouse,"Optical USB mouse",Accessories,12.85,EA,1
+2a97c75e-dfdf-42a4-80b4-832447d78b30,Heavy-duty Shelves,"Steel shelving",Warehouse,205.00,SET,1
+52999a86-7092-4937-90ef-169d4df7e9a9,Legal Pads,"A4 yellow pads",Stationery,7.30,PACK,1
+1bc1c06b-e381-4ac1-90ef-e7b125203171,Phone Headset,"Wireless office headset",Electronics,89.99,EA,1
+303d2189-b62d-404a-87e3-3db9a749d2dc,Desk Lamp,"LED adjustable lamp",Accessories,39.95,EA,1
+d1289610-e028-41d3-9cf1-f749fc9e005e,Monitor 27 Inch,"Full HD screen",Electronics,220.00,EA,1
+c869f87e-03b9-466e-a3e3-d8eb9b12ae42,Calculator,"Standard business calculator",Office Supplies,15.60,EA,1
+f8710931-09fc-4373-92bb-ccefb682508f,Filing Cabinet,"Metal 4-drawer",Office Supplies,175.00,EA,1
+930b422e-b4b9-4a92-86f6-bac1809e1cf8,Sticky Notes,"12 pads, assorted color",Office Supplies,8.25,PACK,1
+05879e6d-bd29-4034-a348-2c62ae0e77e1,Mailing Box,"Small shipping box",Warehouse,2.35,EA,1
+8e6d7fa3-b345-4f9b-964c-28c3917f0055,First Aid Kit,"Complete workplace kit",Medical,60.00,EA,1
+c89919c2-4292-4fc5-86a3-1e24d6c961d5,Toner Cartridge,"Black",Electronics,53.90,EA,1
+e2de733d-9d16-4a0a-bf2e-5cc3e67b4b61,Extension Cord,"5m electric cord",Electronics,18.75,EA,1

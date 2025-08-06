@@ -1,22 +1,21 @@
-
 ID,parent_ID,productName,quantity,unit
-RIT1,PRQ1,Laptop 15 Inch,10,EA
-RIT2,PRQ2,Copy Paper Box,100,BOX
-RIT3,PRQ3,Industrial Printer,2,EA
-RIT4,PRQ4,Desk Chair,15,EA
-RIT5,PRQ5,Filing Cabinet,24,EA
-RIT6,PRQ6,Cleaning Liquid,8,L
-RIT7,PRQ7,Industrial Printer,6,EA
-RIT8,PRQ8,Heavy-duty Shelves,30,SET
-RIT9,PRQ9,Legal Pads,40,PACK
-RIT10,PRQ10,Coffee Machine,5,EA
-RIT11,PRQ11,Label Printer,18,EA
-RIT12,PRQ12,Desk Chair,12,EA
-RIT13,PRQ13,Phone Headset,6,EA
-RIT14,PRQ14,Desk Lamp,8,EA
-RIT15,PRQ15,Laptop 15 Inch,3,EA
-RIT16,PRQ16,Desk Chair,25,EA
-RIT17,PRQ17,Filing Cabinet,11,EA
-RIT18,PRQ18,Mailing Box,14,EA
-RIT19,PRQ19,Desk Lamp,13,EA
-RIT20,PRQ20,First Aid Kit,9,EA
+a2c30c63-f66e-4449-8938-6ebd9c5ac761,7cfcbdf4-774f-4b6d-a9e3-eecfa7b5d183,Laptop 15 Inch,10,EA
+d6c1f498-d498-4cc3-9a3e-9a69b4279a0e,9967c8ee-df33-4a1b-8f6d-39bcb60d321f,Copy Paper Box,100,BOX
+1550a45e-b267-466f-a5d8-5b2ef6a528e0,b9c5947a-8e7e-4bc6-b8df-31f9272c0f29,Industrial Printer,2,EA
+0db7f938-4798-40a2-90d1-2f73d0d0dc49,b3f98c49-88f4-4f83-85a9-93e1a53fd7ee,Desk Chair,15,EA
+9827d582-2b12-4684-b879-c43854fa9243,9739d15d-0e57-49d1-a61e-8dded92f6712,Filing Cabinet,24,EA
+29ce408e-cd33-490d-84ed-7606b3cd73cd,dc83a9e2-f5b6-4d6e-8b01-d67244e8e013,Cleaning Liquid,8,L
+1f86ce32-03e6-43b1-bfae-2292a06096df,b4844e14-cdd7-4a61-85c2-d5283c084eac,Industrial Printer,6,EA
+6943bde5-5e4f-4297-977e-50619d30dd86,ff59f7b4-ea8f-417a-a839-6016c20a783f,Heavy-duty Shelves,30,SET
+7e3b30b5-dadb-40df-9cf5-3c758a4e9db8,2338d30f-bc89-49f5-9819-ff20b4b086d5,Legal Pads,40,PACK
+74928f9b-f922-423b-95c6-26a354efdf1e,7e7c2758-65c3-4f70-8f12-9cb0a28e8f94,Coffee Machine,5,EA
+d54fe3cc-48f2-45ee-b632-c2e161ce59ac,457a7a52-75f1-4e4d-a6b3-3026ee5481d3,Label Printer,18,EA
+7ad90bd5-9b3e-43bc-9f35-5f84c9d40e37,a26c97f0-b0c0-42c2-b79c-92e1148944c4,Desk Chair,12,EA
+d2b25bd7-d7d4-41bb-9d9e-7a0b6c35c163,4f3207c6-7cb6-4cd5-b3e4-027cbd429f46,Phone Headset,6,EA
+f227c7b5-67e2-4d8e-b8aa-9aa719b8695c,9c0ae229-c6cb-4a6d-a8f6-bac94e00a8e7,Desk Lamp,8,EA
+90d01377-6ee6-4598-b265-d75a239dd7a1,173e3d2c-10c6-468a-b222-21ab0be94ec3,Laptop 15 Inch,3,EA
+5882fd2b-2dd2-43fc-b005-1bca0f0d9273,7bead92e-7e36-4b9a-b2cc-70bd9b3e21c0,Desk Chair,25,EA
+4e6c53a0-45f5-4cf1-b2ef-6783a7bb6f26,835f0e52-e861-4912-8d25-739780802787,Filing Cabinet,11,EA
+4e00d5d6-e208-4341-a263-f143f7c5b78a,d0e5f6f0-8231-4096-9486-b6d9c6a2c50a,Mailing Box,14,EA
+abde2302-0e26-41b1-a5c2-f95e342fd62e,f3c6d1b3-2c3e-4e25-a5ec-cd1338658cbe,Desk Lamp,13,EA
+e7a2796b-bdcb-49a7-8439-e99061aa3c0d,98363d08-bb92-4400-9a79-d4b4aabaf37e,First Aid Kit,9,EA

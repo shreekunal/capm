@@ -1,21 +1,21 @@
 ID,departmentName,description,manager,costCenter
-DEP1,Procurement,Handles supplier relations and purchasing,Anna Smith,COST1001
-DEP2,IT,Technology infrastructure and support,John Roe,COST1003
-DEP3,Finance,Accounting and budget oversight,Lin Chen,COST1005
-DEP4,Marketing,All marketing activities,Emily Turner,COST1007
-DEP5,Human Resources,Handles HR and recruiting,Gary Lee,COST1009
-DEP6,Research & Dev,R&D Projects and innovation,Lisa Wang,COST1002
-DEP7,Production,Manufacturing line supervision,Martin Falck,COST1004
-DEP8,Warehouse,Stock and shipments,Isabel Becker,COST1006
-DEP9,Legal,Contracts and IP,Peter Adams,COST1008
-DEP10,Customer Support,Customer queries and after sales,David Liu,COST1010
-DEP11,Logistics,Manages shipping logistics,Samuel King,COST1001
-DEP12,Facility Mgmt,Facility operations and maintenance,Karen Vo,COST1002
-DEP13,Quality Control,Product and service QA,Shawn Miles,COST1003
-DEP14,Reception,Front desk and call handling,Megan Lee,COST1004
-DEP15,Executive,Strategy and company direction,Paul Remer,COST1005
-DEP16,Engineering,Product design and development,Olga Petrov,COST1006
-DEP17,Compliance,Standards and regulatory,Joan Ma,COST1007
-DEP18,Events,Corporate event planning,Amy Tran,COST1008
-DEP19,Public Relations,Media and public reputation,Phil Grant,COST1009
-DEP20,Security,Building and IT security,Bob Doyle,COST1010
+f3b1d3fa-5f9c-4db6-a431-9e20e5e08d01,Procurement,Handles supplier relations and purchasing,Anna Smith,COST1001
+a2de1f89-9d24-4e52-9c3d-6d5ad0f245b2,IT,Technology infrastructure and support,John Roe,COST1003
+4ac24b1c-7cb8-4f85-a646-0b69a22f60f0,Finance,Accounting and budget oversight,Lin Chen,COST1005
+b2d2f2d0-5f61-4e61-a9e7-4e223b76acb7,Marketing,All marketing activities,Emily Turner,COST1007
+c6a80b70-8719-405c-91f7-c4a91d1a34fb,Human Resources,Handles HR and recruiting,Gary Lee,COST1009
+bbfb6f52-32ae-4c6f-9e1e-6e9a0b62d6e4,Research & Dev,R&D Projects and innovation,Lisa Wang,COST1002
+ae2f67bb-78a0-4a7d-b88c-4d6a62fc9563,Production,Manufacturing line supervision,Martin Falck,COST1004
+1c3c103a-6bc1-4fd6-b999-f4e0b2d9e90e,Warehouse,Stock and shipments,Isabel Becker,COST1006
+e04fa0b0-7bd3-4e0b-b258-d6f5e4c1ff8b,Legal,Contracts and IP,Peter Adams,COST1008
+6d930de3-32b5-4ad2-8b6b-18279b0cd4b4,Customer Support,Customer queries and after sales,David Liu,COST1010
+24f1eb93-dc3a-45c4-9d2c-0c861e7c3821,Logistics,Manages shipping logistics,Samuel King,COST1001
+7a6fd1ec-63c7-4d0d-9242-67ef1be0c1c2,Facility Mgmt,Facility operations and maintenance,Karen Vo,COST1002
+5de58dd1-84b1-48f6-a42a-110a9e18cf1a,Quality Control,Product and service QA,Shawn Miles,COST1003
+ec07f519-9a97-499b-b66b-63fbd622c168,Reception,Front desk and call handling,Megan Lee,COST1004
+369ee49b-e4c3-441c-bdea-c5f9f3d5e47e,Executive,Strategy and company direction,Paul Remer,COST1005
+dd28cd90-429b-4c4d-bc83-c2de35d5c4c7,Engineering,Product design and development,Olga Petrov,COST1006
+5dc3f9cf-e248-4748-85b1-3992f759afcc,Compliance,Standards and regulatory,Joan Ma,COST1007
+b5e2a91e-c110-4c7a-a3c5-5cf4a7d070cf,Events,Corporate event planning,Amy Tran,COST1008
+d053eb5e-8a07-4b1f-9e42-c08ea211ac2f,Public Relations,Media and public reputation,Phil Grant,COST1009
+c87bcae3-bec7-4e58-9861-3aee8c8b4fc6,Security,Building and IT security,Bob Doyle,COST1010
