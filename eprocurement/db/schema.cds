@@ -10,7 +10,7 @@ entity Suppliers : cuid, managed {
   contactEmail     : String(100) @mandatory;
   phone            : String(30)  @mandatory;
   registrationDate : Date        @mandatory;
-  status           : String(20)  @mandatory  @assert.range  enum {
+  status           : String(20)  @mandatory @assert.range enum {
     New;
     Approved;
     Blocked;
@@ -24,7 +24,7 @@ entity Departments : cuid, managed {
   departmentName : String(100) @mandatory;
   description    : String(255);
   manager        : String(100) @mandatory;
-  costCenter     : String(20)  @mandatory  @assert.range  enum {
+  costCenter     : String(20)  @mandatory @assert.range enum {
     COST1001;
     COST1002;
     COST1003;
@@ -43,7 +43,7 @@ entity Products : cuid, managed {
   description : String(255);
   category    : String(50);
   price       : Decimal(15, 2) @mandatory;
-  unit        : String(10)     @mandatory  @assert.range  enum {
+  unit        : String(10)     @mandatory @assert.range enum {
     EA;
     BOX;
     KG;
@@ -60,8 +60,10 @@ entity Products : cuid, managed {
 entity ProcurementRequests : cuid, managed {
   product     : Composition of many RequestItems
                   on product.parent = $self;
+
   department  : Association to Departments;
   supplier    : Association to Suppliers;
+
   quantity    : Integer;
   requestedBy : String(100);
   requestDate : Date;

@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
-    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml">
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
         <edmx:Include Alias="Common" Namespace="com.sap.vocabularies.Common.v1"/>
     </edmx:Reference>
-    <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
+    <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
         <edmx:Include Alias="Core" Namespace="Org.OData.Core.V1"/>
     </edmx:Reference>
-    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/UI.xml">
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/UI.xml" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
         <edmx:Include Alias="UI" Namespace="com.sap.vocabularies.UI.v1"/>
     </edmx:Reference>
-    <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Validation.V1.xml">
+    <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Validation.V1.xml" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
         <edmx:Include Alias="Validation" Namespace="Org.OData.Validation.V1"/>
     </edmx:Reference>
-    <edmx:DataServices>
-        <Schema Namespace="CatalogService" xmlns="http://docs.oasis-open.org/odata/ns/edm">
-            <Annotation Term="Core.Links">
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="CatalogService" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <Annotation Term="Core.Links" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Collection>
                     <Record>
                         <PropertyValue Property="rel" String="author"/>
@@ -22,24 +22,91 @@
                     </Record>
                 </Collection>
             </Annotation>
-            <EntityContainer Name="EntityContainer">
-                <EntitySet Name="Suppliers" EntityType="CatalogService.Suppliers">
-                    <NavigationPropertyBinding Path="SiblingEntity" Target="Suppliers"/>
-                </EntitySet>
-                <EntitySet Name="Departments" EntityType="CatalogService.Departments">
-                    <NavigationPropertyBinding Path="SiblingEntity" Target="Departments"/>
-                </EntitySet>
-                <EntitySet Name="Products" EntityType="CatalogService.Products">
-                    <NavigationPropertyBinding Path="SiblingEntity" Target="Products"/>
-                </EntitySet>
-                <EntitySet Name="ProcurementRequests" EntityType="CatalogService.ProcurementRequests">
-                    <NavigationPropertyBinding Path="product" Target="RequestItems"/>
-                    <NavigationPropertyBinding Path="department" Target="Departments"/>
-                    <NavigationPropertyBinding Path="supplier" Target="Suppliers"/>
-                </EntitySet>
-                <EntitySet Name="RequestItems" EntityType="CatalogService.RequestItems">
-                    <NavigationPropertyBinding Path="parent" Target="ProcurementRequests"/>
-                </EntitySet>
+            <EntityContainer Name="EntityContainer" m:IsDefaultEntityContainer="true">
+                <EntitySet Name="Suppliers" EntityType="CatalogService.Suppliers"/>
+                <FunctionImport Name="Suppliers_draftPrepare" EntitySet="Suppliers" ReturnType="CatalogService.Suppliers" m:HttpMethod="POST" sap:action-for="CatalogService.Suppliers">
+                    <Parameter Name="ID" Type="Edm.Guid" Nullable="false" Mode="In"/>
+                    <Parameter Name="IsActiveEntity" Type="Edm.Boolean" Nullable="false" Mode="In"/>
+                    <Parameter Name="SideEffectsQualifier" Type="Edm.String" Mode="In" Nullable="true"/>
+                </FunctionImport>
+                <FunctionImport Name="Suppliers_draftActivate" EntitySet="Suppliers" ReturnType="CatalogService.Suppliers" m:HttpMethod="POST" sap:action-for="CatalogService.Suppliers">
+                    <Parameter Name="ID" Type="Edm.Guid" Nullable="false" Mode="In"/>
+                    <Parameter Name="IsActiveEntity" Type="Edm.Boolean" Nullable="false" Mode="In"/>
+                </FunctionImport>
+                <FunctionImport Name="Suppliers_draftEdit" EntitySet="Suppliers" ReturnType="CatalogService.Suppliers" m:HttpMethod="POST" sap:action-for="CatalogService.Suppliers">
+                    <Parameter Name="ID" Type="Edm.Guid" Nullable="false" Mode="In"/>
+                    <Parameter Name="IsActiveEntity" Type="Edm.Boolean" Nullable="false" Mode="In"/>
+                    <Parameter Name="PreserveChanges" Type="Edm.Boolean" Mode="In" Nullable="true"/>
+                </FunctionImport>
+                <EntitySet Name="Departments" EntityType="CatalogService.Departments"/>
+                <FunctionImport Name="Departments_draftPrepare" EntitySet="Departments" ReturnType="CatalogService.Departments" m:HttpMethod="POST" sap:action-for="CatalogService.Departments">
+                    <Parameter Name="ID" Type="Edm.Guid" Nullable="false" Mode="In"/>
+                    <Parameter Name="IsActiveEntity" Type="Edm.Boolean" Nullable="false" Mode="In"/>
+                    <Parameter Name="SideEffectsQualifier" Type="Edm.String" Mode="In" Nullable="true"/>
+                </FunctionImport>
+                <FunctionImport Name="Departments_draftActivate" EntitySet="Departments" ReturnType="CatalogService.Departments" m:HttpMethod="POST" sap:action-for="CatalogService.Departments">
+                    <Parameter Name="ID" Type="Edm.Guid" Nullable="false" Mode="In"/>
+                    <Parameter Name="IsActiveEntity" Type="Edm.Boolean" Nullable="false" Mode="In"/>
+                </FunctionImport>
+                <FunctionImport Name="Departments_draftEdit" EntitySet="Departments" ReturnType="CatalogService.Departments" m:HttpMethod="POST" sap:action-for="CatalogService.Departments">
+                    <Parameter Name="ID" Type="Edm.Guid" Nullable="false" Mode="In"/>
+                    <Parameter Name="IsActiveEntity" Type="Edm.Boolean" Nullable="false" Mode="In"/>
+                    <Parameter Name="PreserveChanges" Type="Edm.Boolean" Mode="In" Nullable="true"/>
+                </FunctionImport>
+                <EntitySet Name="Products" EntityType="CatalogService.Products"/>
+                <FunctionImport Name="Products_draftPrepare" EntitySet="Products" ReturnType="CatalogService.Products" m:HttpMethod="POST" sap:action-for="CatalogService.Products">
+                    <Parameter Name="ID" Type="Edm.Guid" Nullable="false" Mode="In"/>
+                    <Parameter Name="IsActiveEntity" Type="Edm.Boolean" Nullable="false" Mode="In"/>
+                    <Parameter Name="SideEffectsQualifier" Type="Edm.String" Mode="In" Nullable="true"/>
+                </FunctionImport>
+                <FunctionImport Name="Products_draftActivate" EntitySet="Products" ReturnType="CatalogService.Products" m:HttpMethod="POST" sap:action-for="CatalogService.Products">
+                    <Parameter Name="ID" Type="Edm.Guid" Nullable="false" Mode="In"/>
+                    <Parameter Name="IsActiveEntity" Type="Edm.Boolean" Nullable="false" Mode="In"/>
+                </FunctionImport>
+                <FunctionImport Name="Products_draftEdit" EntitySet="Products" ReturnType="CatalogService.Products" m:HttpMethod="POST" sap:action-for="CatalogService.Products">
+                    <Parameter Name="ID" Type="Edm.Guid" Nullable="false" Mode="In"/>
+                    <Parameter Name="IsActiveEntity" Type="Edm.Boolean" Nullable="false" Mode="In"/>
+                    <Parameter Name="PreserveChanges" Type="Edm.Boolean" Mode="In" Nullable="true"/>
+                </FunctionImport>
+                <EntitySet Name="ProcurementRequests" EntityType="CatalogService.ProcurementRequests"/>
+                <EntitySet Name="RequestItems" EntityType="CatalogService.RequestItems"/>
+                <EntitySet Name="DraftAdministrativeData" EntityType="CatalogService.DraftAdministrativeData"/>
+                <AssociationSet Name="Suppliers_DraftAdministrativeData" Association="CatalogService.Suppliers_DraftAdministrativeData">
+                    <End Role="Suppliers" EntitySet="Suppliers"/>
+                    <End Role="DraftAdministrativeData" EntitySet="DraftAdministrativeData"/>
+                </AssociationSet>
+                <AssociationSet Name="Suppliers_SiblingEntity" Association="CatalogService.Suppliers_SiblingEntity">
+                    <End Role="Suppliers" EntitySet="Suppliers"/>
+                    <End Role="Suppliers1" EntitySet="Suppliers"/>
+                </AssociationSet>
+                <AssociationSet Name="Departments_DraftAdministrativeData" Association="CatalogService.Departments_DraftAdministrativeData">
+                    <End Role="Departments" EntitySet="Departments"/>
+                    <End Role="DraftAdministrativeData" EntitySet="DraftAdministrativeData"/>
+                </AssociationSet>
+                <AssociationSet Name="Departments_SiblingEntity" Association="CatalogService.Departments_SiblingEntity">
+                    <End Role="Departments" EntitySet="Departments"/>
+                    <End Role="Departments1" EntitySet="Departments"/>
+                </AssociationSet>
+                <AssociationSet Name="Products_DraftAdministrativeData" Association="CatalogService.Products_DraftAdministrativeData">
+                    <End Role="Products" EntitySet="Products"/>
+                    <End Role="DraftAdministrativeData" EntitySet="DraftAdministrativeData"/>
+                </AssociationSet>
+                <AssociationSet Name="Products_SiblingEntity" Association="CatalogService.Products_SiblingEntity">
+                    <End Role="Products" EntitySet="Products"/>
+                    <End Role="Products1" EntitySet="Products"/>
+                </AssociationSet>
+                <AssociationSet Name="ProcurementRequests_department" Association="CatalogService.ProcurementRequests_department">
+                    <End Role="ProcurementRequests" EntitySet="ProcurementRequests"/>
+                    <End Role="Departments" EntitySet="Departments"/>
+                </AssociationSet>
+                <AssociationSet Name="ProcurementRequests_supplier" Association="CatalogService.ProcurementRequests_supplier">
+                    <End Role="ProcurementRequests" EntitySet="ProcurementRequests"/>
+                    <End Role="Suppliers" EntitySet="Suppliers"/>
+                </AssociationSet>
+                <AssociationSet Name="RequestItems_parent" Association="CatalogService.RequestItems_parent">
+                    <End Role="RequestItems" EntitySet="RequestItems"/>
+                    <End Role="ProcurementRequests" EntitySet="ProcurementRequests"/>
+                </AssociationSet>
             </EntityContainer>
             <EntityType Name="Suppliers">
                 <Key>
@@ -54,16 +121,17 @@
                 <Property Name="name" Type="Edm.String" MaxLength="100"/>
                 <Property Name="contactEmail" Type="Edm.String" MaxLength="100"/>
                 <Property Name="phone" Type="Edm.String" MaxLength="30"/>
-                <Property Name="registrationDate" Type="Edm.Date"/>
+                <Property Name="registrationDate" Type="Edm.DateTime" sap:display-format="Date"/>
                 <Property Name="status" Type="Edm.String" MaxLength="20"/>
                 <Property Name="vatNumber" Type="Edm.String" MaxLength="30"/>
                 <Property Name="address" Type="Edm.String" MaxLength="255"/>
-                <Property Name="isApproved" Type="Edm.Boolean" DefaultValue="false"/>
-                <Property Name="IsActiveEntity" Type="Edm.Boolean" Nullable="false" DefaultValue="true"/>
-                <Property Name="HasActiveEntity" Type="Edm.Boolean" Nullable="false" DefaultValue="false"/>
-                <Property Name="HasDraftEntity" Type="Edm.Boolean" Nullable="false" DefaultValue="false"/>
-                <NavigationProperty Name="DraftAdministrativeData" Type="CatalogService.DraftAdministrativeData" ContainsTarget="true"/>
-                <NavigationProperty Name="SiblingEntity" Type="CatalogService.Suppliers"/>
+                <Property Name="isApproved" Type="Edm.Boolean"/>
+                <Property Name="IsActiveEntity" Type="Edm.Boolean" Nullable="false"/>
+                <Property Name="HasActiveEntity" Type="Edm.Boolean" Nullable="false"/>
+                <Property Name="HasDraftEntity" Type="Edm.Boolean" Nullable="false"/>
+                <NavigationProperty Name="DraftAdministrativeData" Relationship="CatalogService.Suppliers_DraftAdministrativeData" FromRole="Suppliers" ToRole="DraftAdministrativeData"/>
+                <Property Name="DraftAdministrativeData_DraftUUID" Type="Edm.Guid"/>
+                <NavigationProperty Name="SiblingEntity" Relationship="CatalogService.Suppliers_SiblingEntity" FromRole="Suppliers" ToRole="Suppliers1"/>
             </EntityType>
             <EntityType Name="Departments">
                 <Key>
@@ -79,11 +147,12 @@
                 <Property Name="description" Type="Edm.String" MaxLength="255"/>
                 <Property Name="manager" Type="Edm.String" MaxLength="100"/>
                 <Property Name="costCenter" Type="Edm.String" MaxLength="20"/>
-                <Property Name="IsActiveEntity" Type="Edm.Boolean" Nullable="false" DefaultValue="true"/>
-                <Property Name="HasActiveEntity" Type="Edm.Boolean" Nullable="false" DefaultValue="false"/>
-                <Property Name="HasDraftEntity" Type="Edm.Boolean" Nullable="false" DefaultValue="false"/>
-                <NavigationProperty Name="DraftAdministrativeData" Type="CatalogService.DraftAdministrativeData" ContainsTarget="true"/>
-                <NavigationProperty Name="SiblingEntity" Type="CatalogService.Departments"/>
+                <Property Name="IsActiveEntity" Type="Edm.Boolean" Nullable="false"/>
+                <Property Name="HasActiveEntity" Type="Edm.Boolean" Nullable="false"/>
+                <Property Name="HasDraftEntity" Type="Edm.Boolean" Nullable="false"/>
+                <NavigationProperty Name="DraftAdministrativeData" Relationship="CatalogService.Departments_DraftAdministrativeData" FromRole="Departments" ToRole="DraftAdministrativeData"/>
+                <Property Name="DraftAdministrativeData_DraftUUID" Type="Edm.Guid"/>
+                <NavigationProperty Name="SiblingEntity" Relationship="CatalogService.Departments_SiblingEntity" FromRole="Departments" ToRole="Departments1"/>
             </EntityType>
             <EntityType Name="Products">
                 <Key>
@@ -100,12 +169,13 @@
                 <Property Name="category" Type="Edm.String" MaxLength="50"/>
                 <Property Name="price" Type="Edm.Decimal" Precision="15" Scale="2"/>
                 <Property Name="unit" Type="Edm.String" MaxLength="10"/>
-                <Property Name="isActive" Type="Edm.Boolean" DefaultValue="true"/>
-                <Property Name="IsActiveEntity" Type="Edm.Boolean" Nullable="false" DefaultValue="true"/>
-                <Property Name="HasActiveEntity" Type="Edm.Boolean" Nullable="false" DefaultValue="false"/>
-                <Property Name="HasDraftEntity" Type="Edm.Boolean" Nullable="false" DefaultValue="false"/>
-                <NavigationProperty Name="DraftAdministrativeData" Type="CatalogService.DraftAdministrativeData" ContainsTarget="true"/>
-                <NavigationProperty Name="SiblingEntity" Type="CatalogService.Products"/>
+                <Property Name="isActive" Type="Edm.Boolean"/>
+                <Property Name="IsActiveEntity" Type="Edm.Boolean" Nullable="false"/>
+                <Property Name="HasActiveEntity" Type="Edm.Boolean" Nullable="false"/>
+                <Property Name="HasDraftEntity" Type="Edm.Boolean" Nullable="false"/>
+                <NavigationProperty Name="DraftAdministrativeData" Relationship="CatalogService.Products_DraftAdministrativeData" FromRole="Products" ToRole="DraftAdministrativeData"/>
+                <Property Name="DraftAdministrativeData_DraftUUID" Type="Edm.Guid"/>
+                <NavigationProperty Name="SiblingEntity" Relationship="CatalogService.Products_SiblingEntity" FromRole="Products" ToRole="Products1"/>
             </EntityType>
             <EntityType Name="ProcurementRequests">
                 <Key>
@@ -116,20 +186,14 @@
                 <Property Name="createdBy" Type="Edm.String" MaxLength="255"/>
                 <Property Name="modifiedAt" Type="Edm.DateTimeOffset" Precision="7"/>
                 <Property Name="modifiedBy" Type="Edm.String" MaxLength="255"/>
-                <NavigationProperty Name="product" Type="Collection(CatalogService.RequestItems)" Partner="parent">
-                    <OnDelete Action="Cascade"/>
-                </NavigationProperty>
-                <NavigationProperty Name="department" Type="CatalogService.Departments">
-                    <ReferentialConstraint Property="department_ID" ReferencedProperty="ID"/>
-                </NavigationProperty>
+                <NavigationProperty Name="product" Relationship="CatalogService.RequestItems_parent" FromRole="ProcurementRequests" ToRole="RequestItems"/>
+                <NavigationProperty Name="department" Relationship="CatalogService.ProcurementRequests_department" FromRole="ProcurementRequests" ToRole="Departments"/>
                 <Property Name="department_ID" Type="Edm.Guid"/>
-                <NavigationProperty Name="supplier" Type="CatalogService.Suppliers">
-                    <ReferentialConstraint Property="supplier_ID" ReferencedProperty="ID"/>
-                </NavigationProperty>
+                <NavigationProperty Name="supplier" Relationship="CatalogService.ProcurementRequests_supplier" FromRole="ProcurementRequests" ToRole="Suppliers"/>
                 <Property Name="supplier_ID" Type="Edm.Guid"/>
                 <Property Name="quantity" Type="Edm.Int32"/>
                 <Property Name="requestedBy" Type="Edm.String" MaxLength="100"/>
-                <Property Name="requestDate" Type="Edm.Date"/>
+                <Property Name="requestDate" Type="Edm.DateTime" sap:display-format="Date"/>
                 <Property Name="status" Type="Edm.String" MaxLength="20"/>
                 <Property Name="comments" Type="Edm.String" MaxLength="255"/>
             </EntityType>
@@ -138,12 +202,10 @@
                     <PropertyRef Name="ID"/>
                 </Key>
                 <Property Name="ID" Type="Edm.Guid" Nullable="false"/>
-                <NavigationProperty Name="parent" Type="CatalogService.ProcurementRequests" Partner="product">
-                    <ReferentialConstraint Property="parent_ID" ReferencedProperty="ID"/>
-                </NavigationProperty>
+                <NavigationProperty Name="parent" Relationship="CatalogService.RequestItems_parent" FromRole="RequestItems" ToRole="ProcurementRequests"/>
                 <Property Name="parent_ID" Type="Edm.Guid"/>
                 <Property Name="productName" Type="Edm.String"/>
-                <Property Name="quantity" Type="Edm.Decimal" Scale="variable"/>
+                <Property Name="quantity" Type="Edm.Decimal" sap:variable-scale="true"/>
                 <Property Name="unit" Type="Edm.String"/>
             </EntityType>
             <EntityType Name="DraftAdministrativeData">
@@ -159,68 +221,96 @@
                 <Property Name="InProcessByUser" Type="Edm.String" MaxLength="256"/>
                 <Property Name="DraftIsProcessedByMe" Type="Edm.Boolean"/>
             </EntityType>
-            <Action Name="draftPrepare" IsBound="true" EntitySetPath="in">
-                <Parameter Name="in" Type="CatalogService.Suppliers"/>
-                <Parameter Name="SideEffectsQualifier" Type="Edm.String"/>
-                <ReturnType Type="CatalogService.Suppliers"/>
-            </Action>
-            <Action Name="draftPrepare" IsBound="true" EntitySetPath="in">
-                <Parameter Name="in" Type="CatalogService.Departments"/>
-                <Parameter Name="SideEffectsQualifier" Type="Edm.String"/>
-                <ReturnType Type="CatalogService.Departments"/>
-            </Action>
-            <Action Name="draftPrepare" IsBound="true" EntitySetPath="in">
-                <Parameter Name="in" Type="CatalogService.Products"/>
-                <Parameter Name="SideEffectsQualifier" Type="Edm.String"/>
-                <ReturnType Type="CatalogService.Products"/>
-            </Action>
-            <Action Name="draftActivate" IsBound="true" EntitySetPath="in">
-                <Parameter Name="in" Type="CatalogService.Suppliers"/>
-                <ReturnType Type="CatalogService.Suppliers"/>
-            </Action>
-            <Action Name="draftActivate" IsBound="true" EntitySetPath="in">
-                <Parameter Name="in" Type="CatalogService.Departments"/>
-                <ReturnType Type="CatalogService.Departments"/>
-            </Action>
-            <Action Name="draftActivate" IsBound="true" EntitySetPath="in">
-                <Parameter Name="in" Type="CatalogService.Products"/>
-                <ReturnType Type="CatalogService.Products"/>
-            </Action>
-            <Action Name="draftEdit" IsBound="true" EntitySetPath="in">
-                <Parameter Name="in" Type="CatalogService.Suppliers"/>
-                <Parameter Name="PreserveChanges" Type="Edm.Boolean"/>
-                <ReturnType Type="CatalogService.Suppliers"/>
-            </Action>
-            <Action Name="draftEdit" IsBound="true" EntitySetPath="in">
-                <Parameter Name="in" Type="CatalogService.Departments"/>
-                <Parameter Name="PreserveChanges" Type="Edm.Boolean"/>
-                <ReturnType Type="CatalogService.Departments"/>
-            </Action>
-            <Action Name="draftEdit" IsBound="true" EntitySetPath="in">
-                <Parameter Name="in" Type="CatalogService.Products"/>
-                <Parameter Name="PreserveChanges" Type="Edm.Boolean"/>
-                <ReturnType Type="CatalogService.Products"/>
-            </Action>
-            <Annotations Target="CatalogService.EntityContainer/Suppliers">
+            <Association Name="Suppliers_DraftAdministrativeData">
+                <End Role="Suppliers" Type="CatalogService.Suppliers" Multiplicity="*"/>
+                <End Role="DraftAdministrativeData" Type="CatalogService.DraftAdministrativeData" Multiplicity="0..1"/>
+                <ReferentialConstraint>
+                    <Principal Role="DraftAdministrativeData">
+                        <PropertyRef Name="DraftUUID"/>
+                    </Principal>
+                    <Dependent Role="Suppliers">
+                        <PropertyRef Name="DraftAdministrativeData_DraftUUID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="Suppliers_SiblingEntity">
+                <End Role="Suppliers" Type="CatalogService.Suppliers" Multiplicity="*"/>
+                <End Role="Suppliers1" Type="CatalogService.Suppliers" Multiplicity="0..1"/>
+            </Association>
+            <Association Name="Departments_DraftAdministrativeData">
+                <End Role="Departments" Type="CatalogService.Departments" Multiplicity="*"/>
+                <End Role="DraftAdministrativeData" Type="CatalogService.DraftAdministrativeData" Multiplicity="0..1"/>
+                <ReferentialConstraint>
+                    <Principal Role="DraftAdministrativeData">
+                        <PropertyRef Name="DraftUUID"/>
+                    </Principal>
+                    <Dependent Role="Departments">
+                        <PropertyRef Name="DraftAdministrativeData_DraftUUID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="Departments_SiblingEntity">
+                <End Role="Departments" Type="CatalogService.Departments" Multiplicity="*"/>
+                <End Role="Departments1" Type="CatalogService.Departments" Multiplicity="0..1"/>
+            </Association>
+            <Association Name="Products_DraftAdministrativeData">
+                <End Role="Products" Type="CatalogService.Products" Multiplicity="*"/>
+                <End Role="DraftAdministrativeData" Type="CatalogService.DraftAdministrativeData" Multiplicity="0..1"/>
+                <ReferentialConstraint>
+                    <Principal Role="DraftAdministrativeData">
+                        <PropertyRef Name="DraftUUID"/>
+                    </Principal>
+                    <Dependent Role="Products">
+                        <PropertyRef Name="DraftAdministrativeData_DraftUUID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="Products_SiblingEntity">
+                <End Role="Products" Type="CatalogService.Products" Multiplicity="*"/>
+                <End Role="Products1" Type="CatalogService.Products" Multiplicity="0..1"/>
+            </Association>
+            <Association Name="ProcurementRequests_department">
+                <End Role="ProcurementRequests" Type="CatalogService.ProcurementRequests" Multiplicity="*"/>
+                <End Role="Departments" Type="CatalogService.Departments" Multiplicity="0..1"/>
+            </Association>
+            <Association Name="ProcurementRequests_supplier">
+                <End Role="ProcurementRequests" Type="CatalogService.ProcurementRequests" Multiplicity="*"/>
+                <End Role="Suppliers" Type="CatalogService.Suppliers" Multiplicity="0..1"/>
+            </Association>
+            <Association Name="RequestItems_parent">
+                <End Role="RequestItems" Type="CatalogService.RequestItems" Multiplicity="*"/>
+                <End Role="ProcurementRequests" Type="CatalogService.ProcurementRequests" Multiplicity="0..1">
+                    <OnDelete Action="Cascade"/>
+                </End>
+                <ReferentialConstraint>
+                    <Principal Role="ProcurementRequests">
+                        <PropertyRef Name="ID"/>
+                    </Principal>
+                    <Dependent Role="RequestItems">
+                        <PropertyRef Name="parent_ID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Annotations Target="CatalogService.EntityContainer/Suppliers" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="Common.DraftRoot">
                     <Record Type="Common.DraftRootType">
-                        <PropertyValue Property="ActivationAction" String="CatalogService.draftActivate"/>
-                        <PropertyValue Property="EditAction" String="CatalogService.draftEdit"/>
-                        <PropertyValue Property="PreparationAction" String="CatalogService.draftPrepare"/>
+                        <PropertyValue Property="ActivationAction" String="CatalogService.EntityContainer/Suppliers_draftActivate"/>
+                        <PropertyValue Property="EditAction" String="CatalogService.EntityContainer/Suppliers_draftEdit"/>
+                        <PropertyValue Property="PreparationAction" String="CatalogService.EntityContainer/Suppliers_draftPrepare"/>
                     </Record>
                 </Annotation>
             </Annotations>
-            <Annotations Target="CatalogService.Suppliers/ID">
+            <Annotations Target="CatalogService.Suppliers/ID" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="Core.ComputedDefaultValue" Bool="true"/>
             </Annotations>
-            <Annotations Target="CatalogService.Suppliers/createdAt">
+            <Annotations Target="CatalogService.Suppliers/createdAt" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="UI.HiddenFilter" Bool="true"/>
                 <Annotation Term="UI.ExcludeFromNavigationContext" Bool="true"/>
                 <Annotation Term="Core.Immutable" Bool="true"/>
                 <Annotation Term="Core.Computed" Bool="true"/>
                 <Annotation Term="Common.Label" String="Created On"/>
             </Annotations>
-            <Annotations Target="CatalogService.Suppliers/createdBy">
+            <Annotations Target="CatalogService.Suppliers/createdBy" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="UI.HiddenFilter" Bool="true"/>
                 <Annotation Term="UI.ExcludeFromNavigationContext" Bool="true"/>
                 <Annotation Term="Core.Immutable" Bool="true"/>
@@ -228,37 +318,32 @@
                 <Annotation Term="Core.Description" String="User's unique ID"/>
                 <Annotation Term="Common.Label" String="Created By"/>
             </Annotations>
-            <Annotations Target="CatalogService.Suppliers/modifiedAt">
+            <Annotations Target="CatalogService.Suppliers/modifiedAt" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="UI.HiddenFilter" Bool="true"/>
                 <Annotation Term="UI.ExcludeFromNavigationContext" Bool="true"/>
                 <Annotation Term="Core.Computed" Bool="true"/>
                 <Annotation Term="Common.Label" String="Changed On"/>
             </Annotations>
-            <Annotations Target="CatalogService.Suppliers/modifiedBy">
+            <Annotations Target="CatalogService.Suppliers/modifiedBy" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="UI.HiddenFilter" Bool="true"/>
                 <Annotation Term="UI.ExcludeFromNavigationContext" Bool="true"/>
                 <Annotation Term="Core.Computed" Bool="true"/>
                 <Annotation Term="Core.Description" String="User's unique ID"/>
                 <Annotation Term="Common.Label" String="Changed By"/>
             </Annotations>
-            <Annotations Target="CatalogService.Suppliers/name">
-                <Annotation Term="Common.Label" String="Name"/>
+            <Annotations Target="CatalogService.Suppliers/name" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/>
             </Annotations>
-            <Annotations Target="CatalogService.Suppliers/contactEmail">
-                <Annotation Term="Common.Label" String="Contact Email"/>
+            <Annotations Target="CatalogService.Suppliers/contactEmail" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/>
             </Annotations>
-            <Annotations Target="CatalogService.Suppliers/phone">
-                <Annotation Term="Common.Label" String="Phone"/>
+            <Annotations Target="CatalogService.Suppliers/phone" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/>
             </Annotations>
-            <Annotations Target="CatalogService.Suppliers/registrationDate">
-                <Annotation Term="Common.Label" String="Registration Date"/>
+            <Annotations Target="CatalogService.Suppliers/registrationDate" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/>
             </Annotations>
-            <Annotations Target="CatalogService.Suppliers/status">
-                <Annotation Term="Common.Label" String="Status"/>
+            <Annotations Target="CatalogService.Suppliers/status" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/>
                 <Annotation Term="Validation.AllowedValues">
                     <Collection>
@@ -277,47 +362,41 @@
                     </Collection>
                 </Annotation>
             </Annotations>
-            <Annotations Target="CatalogService.Suppliers/vatNumber">
-                <Annotation Term="Common.Label" String="VAT Number"/>
-            </Annotations>
-            <Annotations Target="CatalogService.Suppliers/address">
-                <Annotation Term="Common.Label" String="Address"/>
-            </Annotations>
-            <Annotations Target="CatalogService.Suppliers/isApproved">
-                <Annotation Term="Common.Label" String="Approved"/>
-            </Annotations>
-            <Annotations Target="CatalogService.Suppliers/IsActiveEntity">
+            <Annotations Target="CatalogService.Suppliers/IsActiveEntity" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="UI.Hidden" Bool="true"/>
             </Annotations>
-            <Annotations Target="CatalogService.Suppliers/HasActiveEntity">
+            <Annotations Target="CatalogService.Suppliers/HasActiveEntity" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="UI.Hidden" Bool="true"/>
             </Annotations>
-            <Annotations Target="CatalogService.Suppliers/HasDraftEntity">
+            <Annotations Target="CatalogService.Suppliers/HasDraftEntity" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="UI.Hidden" Bool="true"/>
             </Annotations>
-            <Annotations Target="CatalogService.Suppliers/DraftAdministrativeData">
+            <Annotations Target="CatalogService.Suppliers/DraftAdministrativeData" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="UI.Hidden" Bool="true"/>
             </Annotations>
-            <Annotations Target="CatalogService.EntityContainer/Departments">
+            <Annotations Target="CatalogService.Suppliers/DraftAdministrativeData_DraftUUID" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="UI.Hidden" Bool="true"/>
+            </Annotations>
+            <Annotations Target="CatalogService.EntityContainer/Departments" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="Common.DraftRoot">
                     <Record Type="Common.DraftRootType">
-                        <PropertyValue Property="ActivationAction" String="CatalogService.draftActivate"/>
-                        <PropertyValue Property="EditAction" String="CatalogService.draftEdit"/>
-                        <PropertyValue Property="PreparationAction" String="CatalogService.draftPrepare"/>
+                        <PropertyValue Property="ActivationAction" String="CatalogService.EntityContainer/Departments_draftActivate"/>
+                        <PropertyValue Property="EditAction" String="CatalogService.EntityContainer/Departments_draftEdit"/>
+                        <PropertyValue Property="PreparationAction" String="CatalogService.EntityContainer/Departments_draftPrepare"/>
                     </Record>
                 </Annotation>
             </Annotations>
-            <Annotations Target="CatalogService.Departments/ID">
+            <Annotations Target="CatalogService.Departments/ID" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="Core.ComputedDefaultValue" Bool="true"/>
             </Annotations>
-            <Annotations Target="CatalogService.Departments/createdAt">
+            <Annotations Target="CatalogService.Departments/createdAt" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="UI.HiddenFilter" Bool="true"/>
                 <Annotation Term="UI.ExcludeFromNavigationContext" Bool="true"/>
                 <Annotation Term="Core.Immutable" Bool="true"/>
                 <Annotation Term="Core.Computed" Bool="true"/>
                 <Annotation Term="Common.Label" String="Created On"/>
             </Annotations>
-            <Annotations Target="CatalogService.Departments/createdBy">
+            <Annotations Target="CatalogService.Departments/createdBy" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="UI.HiddenFilter" Bool="true"/>
                 <Annotation Term="UI.ExcludeFromNavigationContext" Bool="true"/>
                 <Annotation Term="Core.Immutable" Bool="true"/>
@@ -325,32 +404,26 @@
                 <Annotation Term="Core.Description" String="User's unique ID"/>
                 <Annotation Term="Common.Label" String="Created By"/>
             </Annotations>
-            <Annotations Target="CatalogService.Departments/modifiedAt">
+            <Annotations Target="CatalogService.Departments/modifiedAt" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="UI.HiddenFilter" Bool="true"/>
                 <Annotation Term="UI.ExcludeFromNavigationContext" Bool="true"/>
                 <Annotation Term="Core.Computed" Bool="true"/>
                 <Annotation Term="Common.Label" String="Changed On"/>
             </Annotations>
-            <Annotations Target="CatalogService.Departments/modifiedBy">
+            <Annotations Target="CatalogService.Departments/modifiedBy" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="UI.HiddenFilter" Bool="true"/>
                 <Annotation Term="UI.ExcludeFromNavigationContext" Bool="true"/>
                 <Annotation Term="Core.Computed" Bool="true"/>
                 <Annotation Term="Core.Description" String="User's unique ID"/>
                 <Annotation Term="Common.Label" String="Changed By"/>
             </Annotations>
-            <Annotations Target="CatalogService.Departments/departmentName">
-                <Annotation Term="Common.Label" String="Department Name"/>
+            <Annotations Target="CatalogService.Departments/departmentName" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/>
             </Annotations>
-            <Annotations Target="CatalogService.Departments/description">
-                <Annotation Term="Common.Label" String="Description"/>
-            </Annotations>
-            <Annotations Target="CatalogService.Departments/manager">
-                <Annotation Term="Common.Label" String="Manager"/>
+            <Annotations Target="CatalogService.Departments/manager" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/>
             </Annotations>
-            <Annotations Target="CatalogService.Departments/costCenter">
-                <Annotation Term="Common.Label" String="Cost Center"/>
+            <Annotations Target="CatalogService.Departments/costCenter" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/>
                 <Annotation Term="Validation.AllowedValues">
                     <Collection>
@@ -397,38 +470,41 @@
                     </Collection>
                 </Annotation>
             </Annotations>
-            <Annotations Target="CatalogService.Departments/IsActiveEntity">
+            <Annotations Target="CatalogService.Departments/IsActiveEntity" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="UI.Hidden" Bool="true"/>
             </Annotations>
-            <Annotations Target="CatalogService.Departments/HasActiveEntity">
+            <Annotations Target="CatalogService.Departments/HasActiveEntity" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="UI.Hidden" Bool="true"/>
             </Annotations>
-            <Annotations Target="CatalogService.Departments/HasDraftEntity">
+            <Annotations Target="CatalogService.Departments/HasDraftEntity" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="UI.Hidden" Bool="true"/>
             </Annotations>
-            <Annotations Target="CatalogService.Departments/DraftAdministrativeData">
+            <Annotations Target="CatalogService.Departments/DraftAdministrativeData" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="UI.Hidden" Bool="true"/>
             </Annotations>
-            <Annotations Target="CatalogService.EntityContainer/Products">
+            <Annotations Target="CatalogService.Departments/DraftAdministrativeData_DraftUUID" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="UI.Hidden" Bool="true"/>
+            </Annotations>
+            <Annotations Target="CatalogService.EntityContainer/Products" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="Common.DraftRoot">
                     <Record Type="Common.DraftRootType">
-                        <PropertyValue Property="ActivationAction" String="CatalogService.draftActivate"/>
-                        <PropertyValue Property="EditAction" String="CatalogService.draftEdit"/>
-                        <PropertyValue Property="PreparationAction" String="CatalogService.draftPrepare"/>
+                        <PropertyValue Property="ActivationAction" String="CatalogService.EntityContainer/Products_draftActivate"/>
+                        <PropertyValue Property="EditAction" String="CatalogService.EntityContainer/Products_draftEdit"/>
+                        <PropertyValue Property="PreparationAction" String="CatalogService.EntityContainer/Products_draftPrepare"/>
                     </Record>
                 </Annotation>
             </Annotations>
-            <Annotations Target="CatalogService.Products/ID">
+            <Annotations Target="CatalogService.Products/ID" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="Core.ComputedDefaultValue" Bool="true"/>
             </Annotations>
-            <Annotations Target="CatalogService.Products/createdAt">
+            <Annotations Target="CatalogService.Products/createdAt" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="UI.HiddenFilter" Bool="true"/>
                 <Annotation Term="UI.ExcludeFromNavigationContext" Bool="true"/>
                 <Annotation Term="Core.Immutable" Bool="true"/>
                 <Annotation Term="Core.Computed" Bool="true"/>
                 <Annotation Term="Common.Label" String="Created On"/>
             </Annotations>
-            <Annotations Target="CatalogService.Products/createdBy">
+            <Annotations Target="CatalogService.Products/createdBy" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="UI.HiddenFilter" Bool="true"/>
                 <Annotation Term="UI.ExcludeFromNavigationContext" Bool="true"/>
                 <Annotation Term="Core.Immutable" Bool="true"/>
@@ -436,35 +512,26 @@
                 <Annotation Term="Core.Description" String="User's unique ID"/>
                 <Annotation Term="Common.Label" String="Created By"/>
             </Annotations>
-            <Annotations Target="CatalogService.Products/modifiedAt">
+            <Annotations Target="CatalogService.Products/modifiedAt" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="UI.HiddenFilter" Bool="true"/>
                 <Annotation Term="UI.ExcludeFromNavigationContext" Bool="true"/>
                 <Annotation Term="Core.Computed" Bool="true"/>
                 <Annotation Term="Common.Label" String="Changed On"/>
             </Annotations>
-            <Annotations Target="CatalogService.Products/modifiedBy">
+            <Annotations Target="CatalogService.Products/modifiedBy" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="UI.HiddenFilter" Bool="true"/>
                 <Annotation Term="UI.ExcludeFromNavigationContext" Bool="true"/>
                 <Annotation Term="Core.Computed" Bool="true"/>
                 <Annotation Term="Core.Description" String="User's unique ID"/>
                 <Annotation Term="Common.Label" String="Changed By"/>
             </Annotations>
-            <Annotations Target="CatalogService.Products/name">
-                <Annotation Term="Common.Label" String="Product Name"/>
+            <Annotations Target="CatalogService.Products/name" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/>
             </Annotations>
-            <Annotations Target="CatalogService.Products/description">
-                <Annotation Term="Common.Label" String="Description"/>
-            </Annotations>
-            <Annotations Target="CatalogService.Products/category">
-                <Annotation Term="Common.Label" String="Category"/>
-            </Annotations>
-            <Annotations Target="CatalogService.Products/price">
-                <Annotation Term="Common.Label" String="Price"/>
+            <Annotations Target="CatalogService.Products/price" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/>
             </Annotations>
-            <Annotations Target="CatalogService.Products/unit">
-                <Annotation Term="Common.Label" String="Unit"/>
+            <Annotations Target="CatalogService.Products/unit" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/>
                 <Annotation Term="Validation.AllowedValues">
                     <Collection>
@@ -507,32 +574,32 @@
                     </Collection>
                 </Annotation>
             </Annotations>
-            <Annotations Target="CatalogService.Products/isActive">
-                <Annotation Term="Common.Label" String="Active"/>
-            </Annotations>
-            <Annotations Target="CatalogService.Products/IsActiveEntity">
+            <Annotations Target="CatalogService.Products/IsActiveEntity" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="UI.Hidden" Bool="true"/>
             </Annotations>
-            <Annotations Target="CatalogService.Products/HasActiveEntity">
+            <Annotations Target="CatalogService.Products/HasActiveEntity" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="UI.Hidden" Bool="true"/>
             </Annotations>
-            <Annotations Target="CatalogService.Products/HasDraftEntity">
+            <Annotations Target="CatalogService.Products/HasDraftEntity" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="UI.Hidden" Bool="true"/>
             </Annotations>
-            <Annotations Target="CatalogService.Products/DraftAdministrativeData">
+            <Annotations Target="CatalogService.Products/DraftAdministrativeData" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="UI.Hidden" Bool="true"/>
             </Annotations>
-            <Annotations Target="CatalogService.ProcurementRequests/ID">
+            <Annotations Target="CatalogService.Products/DraftAdministrativeData_DraftUUID" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="UI.Hidden" Bool="true"/>
+            </Annotations>
+            <Annotations Target="CatalogService.ProcurementRequests/ID" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="Core.ComputedDefaultValue" Bool="true"/>
             </Annotations>
-            <Annotations Target="CatalogService.ProcurementRequests/createdAt">
+            <Annotations Target="CatalogService.ProcurementRequests/createdAt" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="UI.HiddenFilter" Bool="true"/>
                 <Annotation Term="UI.ExcludeFromNavigationContext" Bool="true"/>
                 <Annotation Term="Core.Immutable" Bool="true"/>
                 <Annotation Term="Core.Computed" Bool="true"/>
                 <Annotation Term="Common.Label" String="Created On"/>
             </Annotations>
-            <Annotations Target="CatalogService.ProcurementRequests/createdBy">
+            <Annotations Target="CatalogService.ProcurementRequests/createdBy" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="UI.HiddenFilter" Bool="true"/>
                 <Annotation Term="UI.ExcludeFromNavigationContext" Bool="true"/>
                 <Annotation Term="Core.Immutable" Bool="true"/>
@@ -540,21 +607,20 @@
                 <Annotation Term="Core.Description" String="User's unique ID"/>
                 <Annotation Term="Common.Label" String="Created By"/>
             </Annotations>
-            <Annotations Target="CatalogService.ProcurementRequests/modifiedAt">
+            <Annotations Target="CatalogService.ProcurementRequests/modifiedAt" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="UI.HiddenFilter" Bool="true"/>
                 <Annotation Term="UI.ExcludeFromNavigationContext" Bool="true"/>
                 <Annotation Term="Core.Computed" Bool="true"/>
                 <Annotation Term="Common.Label" String="Changed On"/>
             </Annotations>
-            <Annotations Target="CatalogService.ProcurementRequests/modifiedBy">
+            <Annotations Target="CatalogService.ProcurementRequests/modifiedBy" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="UI.HiddenFilter" Bool="true"/>
                 <Annotation Term="UI.ExcludeFromNavigationContext" Bool="true"/>
                 <Annotation Term="Core.Computed" Bool="true"/>
                 <Annotation Term="Core.Description" String="User's unique ID"/>
                 <Annotation Term="Common.Label" String="Changed By"/>
             </Annotations>
-            <Annotations Target="CatalogService.ProcurementRequests/status">
-                <Annotation Term="Common.Label" String="Request Status"/>
+            <Annotations Target="CatalogService.ProcurementRequests/status" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="Validation.AllowedValues">
                     <Collection>
                         <Record Type="Validation.AllowedValue">
@@ -580,37 +646,37 @@
                     </Collection>
                 </Annotation>
             </Annotations>
-            <Annotations Target="CatalogService.RequestItems/ID">
+            <Annotations Target="CatalogService.RequestItems/ID" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="Core.ComputedDefaultValue" Bool="true"/>
             </Annotations>
-            <Annotations Target="CatalogService.DraftAdministrativeData">
+            <Annotations Target="CatalogService.DraftAdministrativeData" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="Common.Label" String="Draft Administrative Data"/>
             </Annotations>
-            <Annotations Target="CatalogService.DraftAdministrativeData/DraftUUID">
+            <Annotations Target="CatalogService.DraftAdministrativeData/DraftUUID" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="UI.Hidden" Bool="true"/>
                 <Annotation Term="Common.Label" String="Draft (Technical ID)"/>
                 <Annotation Term="Core.ComputedDefaultValue" Bool="true"/>
             </Annotations>
-            <Annotations Target="CatalogService.DraftAdministrativeData/CreationDateTime">
+            <Annotations Target="CatalogService.DraftAdministrativeData/CreationDateTime" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="Common.Label" String="Draft Created On"/>
             </Annotations>
-            <Annotations Target="CatalogService.DraftAdministrativeData/CreatedByUser">
+            <Annotations Target="CatalogService.DraftAdministrativeData/CreatedByUser" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="Common.Label" String="Draft Created By"/>
             </Annotations>
-            <Annotations Target="CatalogService.DraftAdministrativeData/DraftIsCreatedByMe">
+            <Annotations Target="CatalogService.DraftAdministrativeData/DraftIsCreatedByMe" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="UI.Hidden" Bool="true"/>
                 <Annotation Term="Common.Label" String="Draft Created By Me"/>
             </Annotations>
-            <Annotations Target="CatalogService.DraftAdministrativeData/LastChangeDateTime">
+            <Annotations Target="CatalogService.DraftAdministrativeData/LastChangeDateTime" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="Common.Label" String="Draft Last Changed On"/>
             </Annotations>
-            <Annotations Target="CatalogService.DraftAdministrativeData/LastChangedByUser">
+            <Annotations Target="CatalogService.DraftAdministrativeData/LastChangedByUser" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="Common.Label" String="Draft Last Changed By"/>
             </Annotations>
-            <Annotations Target="CatalogService.DraftAdministrativeData/InProcessByUser">
+            <Annotations Target="CatalogService.DraftAdministrativeData/InProcessByUser" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="Common.Label" String="Draft In Process By"/>
             </Annotations>
-            <Annotations Target="CatalogService.DraftAdministrativeData/DraftIsProcessedByMe">
+            <Annotations Target="CatalogService.DraftAdministrativeData/DraftIsProcessedByMe" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="UI.Hidden" Bool="true"/>
                 <Annotation Term="Common.Label" String="Draft In Process By Me"/>
             </Annotations>

@@ -1,13 +1,13 @@
 ## Application Details
 |               |
 | ------------- |
-|**Generation Date and Time**<br>Mon Aug 04 2025 19:39:55 GMT+0000 (Coordinated Universal Time)|
+|**Generation Date and Time**<br>Wed Aug 06 2025 12:10:00 GMT+0000 (Coordinated Universal Time)|
 |**App Generator**<br>SAP Fiori Application Generator|
 |**App Generator Version**<br>1.18.4|
 |**Generation Platform**<br>SAP Business Application Studio|
-|**Template Used**<br>Basic V4|
+|**Template Used**<br>Basic V2|
 |**Service Type**<br>SAP System (ABAP On-Premise)|
-|**Service URL**<br>https://6297dd32trial-dev-eprocurement-srv.cfapps.us10-001.hana.ondemand.com/odata/v4/catalog|
+|**Service URL**<br>https://6297dd32trial-dev-eprocurement-srv.cfapps.us10-001.hana.ondemand.com/v2/odata/v4/catalog|
 |**Module Name**<br>project4|
 |**Application Title**<br>Fiori app 4|
 |**Namespace**<br>|
@@ -19,7 +19,7 @@
 
 ## project4
 
-Manage Procurement Request and Approval
+An SAP Fiori application.
 
 ### Starting the generated app
 

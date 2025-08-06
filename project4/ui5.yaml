@@ -16,7 +16,7 @@ server:
             - /test-resources
           url: https://ui5.sap.com
         backend:
-          - path: /odata
+          - path: /v2
             url: https://6297dd32trial-dev-eprocurement-srv.cfapps.us10-001.hana.ondemand.com
             destination: eProcurement-Destination
     - name: fiori-tools-appreload

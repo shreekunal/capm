@@ -13,16 +13,16 @@
     "sourceTemplate": {
       "id": "@sap/generator-fiori:basic",
       "version": "1.18.4",
-      "toolsId": "af8dfb42-4779-4f63-8d93-0bee4be36af2"
+      "toolsId": "4ab6151e-09ce-49fe-9310-dfc5f06aaa8f"
     },
     "dataSources": {
       "mainService": {
-        "uri": "/odata/v4/catalog/",
+        "uri": "/v2/odata/v4/catalog/",
         "type": "OData",
         "settings": {
           "annotations": [],
           "localUri": "localService/mainService/metadata.xml",
-          "odataVersion": "4.0"
+          "odataVersion": "2.0"
         }
       }
     }
@@ -66,11 +66,7 @@
       "": {
         "dataSource": "mainService",
         "preload": true,
-        "settings": {
-          "operationMode": "Server",
-          "autoExpandSelect": true,
-          "earlyRequests": true
-        }
+        "settings": {}
       }
     },
     "resources": {
@@ -94,17 +90,10 @@
       },
       "routes": [
         {
-          "name": "View1",
+          "name": "RouteView1",
           "pattern": ":?query:",
           "target": [
             "TargetView1"
-          ]
-        },
-        {
-          "name": "View2",
-          "pattern": "view2",
-          "target": [
-            "TargetView2"
           ]
         }
       ],
@@ -112,10 +101,6 @@
         "TargetView1": {
           "id": "View1",
           "name": "View1"
-        },
-        "TargetView2": {
-          "id": "View2",
-          "name": "View2"
         }
       }
     },

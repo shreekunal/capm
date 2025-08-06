@@ -30,7 +30,7 @@ server:
       configuration:
         ignoreCertError: false # If set to true, certificate errors will be ignored. E.g. self-signed certificates will be accepted
         backend:
-          - path: /odata
+          - path: /v2
             url: https://6297dd32trial-dev-eprocurement-srv.cfapps.us10-001.hana.ondemand.com
             destination: eProcurement-Destination
     - name: sap-fe-mockserver
@@ -38,7 +38,7 @@ server:
       configuration:
         mountPath: /
         services:
-          - urlPath: /odata/v4/catalog
+          - urlPath: /v2/odata/v4/catalog
             metadataPath: ./webapp/localService/mainService/metadata.xml
             mockdataPath: ./webapp/localService/mainService/data
             generateMockData: true

@@ -1,13 +1,13 @@
 {
   "generationParameters": {
-    "generationDate": "Mon Aug 04 2025 19:39:55 GMT+0000 (Coordinated Universal Time)",
+    "generationDate": "Wed Aug 06 2025 12:10:00 GMT+0000 (Coordinated Universal Time)",
     "generatorPlatform": "SAP Business Application Studio",
     "serviceType": "SAP System (ABAP On-Premise)",
     "metadataFilename": "",
-    "serviceUrl": "https://6297dd32trial-dev-eprocurement-srv.cfapps.us10-001.hana.ondemand.com/odata/v4/catalog",
+    "serviceUrl": "https://6297dd32trial-dev-eprocurement-srv.cfapps.us10-001.hana.ondemand.com/v2/odata/v4/catalog",
     "appName": "project4",
     "appTitle": "Fiori app 4",
-    "appDescription": "Manage Procurement Request and Approval",
+    "appDescription": "An SAP Fiori application.",
     "appNamespace": "",
     "ui5Theme": "sap_horizon",
     "ui5Version": "1.138.1",
@@ -16,7 +16,7 @@
     "enableTypeScript": false,
     "showMockDataInfo": true,
     "generatorVersion": "1.18.4",
-    "template": "Basic V4",
+    "template": "Basic V2",
     "generatorName": "SAP Fiori Application Generator",
     "entityRelatedConfig": [],
     "launchText": "To launch the generated application, run the following from the generated application root folder:\n\n```\n    npm start\n```"

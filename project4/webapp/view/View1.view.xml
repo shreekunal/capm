@@ -2,6 +2,8 @@
     controllerName="project4.controller.View1"
     xmlns:mvc="sap.ui.core.mvc"
     xmlns="sap.m"
+    xmlns:smartTable="sap.ui.comp.smarttable"
+    xmlns:sfb="sap.ui.comp.smartfilterbar"
     xmlns:core="sap.ui.core"
     displayBlock="true"
 >
@@ -16,70 +18,36 @@
             />
         </Toolbar>
 
-        <!-- Custom Filter Toolbar -->
-        <Toolbar>
-            <Label text="Department:" />
-            <Input id="filterDepartment" width="150px" />
-
-            <Label text="Supplier:" />
-            <Input id="filterSupplier" width="150px" />
-
-            <Label text="Status:" />
-            <Select id="filterStatus" width="120px">
-                <items>
-                    <core:Item key="" text="All" />
-                    <core:Item key="New" text="New" />
-                    <core:Item key="Submitted" text="Submitted" />
-                    <core:Item key="Approved" text="Approved" />
-                    <core:Item key="Ordered" text="Ordered" />
-                    <core:Item key="Received" text="Received" />
-                </items>
-            </Select>
-
-            <ToolbarSpacer />
-
-            <Button text="Apply Filter" press="onApplyFilter" />
-        </Toolbar>
-
-        <!-- Table -->
-        <Table
-            id="requestTable"
-            items="{ path: '/ProcurementRequests' }"
-            mode="SingleSelectMaster"
-            inset="false"
+        <!-- Enhanced SmartFilterBar -->
+        <sfb:SmartFilterBar
+            id="smartFilterBar"
+            entitySet="ProcurementRequests"
+            useToolbar="true"
+            showGoOnFB="true"
+            showClearOnFB="true"
+            persistencyKey="SmartFilterBarProcurement"
+            enableBasicSearch="true"
+            basicSearchFieldName="requestedBy"
+            search="onSearch"
         >
-            <headerToolbar>
-                <Toolbar>
-                    <Title text="Procurement Request List" />
-                    <ToolbarSpacer />
-                    <Button
-                        text="Create Request"
-                        type="Emphasized"
-                        press="onCreateRequest"
-                    />
-                </Toolbar>
-            </headerToolbar>
+        </sfb:SmartFilterBar>
 
-            <columns>
-                <Column><Text text="Request ID" /></Column>
-                <Column><Text text="Department" /></Column>
-                <Column><Text text="Supplier" /></Column>
-                <Column><Text text="Request Date" /></Column>
-                <Column><Text text="Status" /></Column>
-            </columns>
-
-            <items>
-                <ColumnListItem type="Navigation" press="onRequestPress">
-                    <cells>
-                        <Text text="{ID}" />
-                        <Text text="{department/departmentName}" />
-                        <Text text="{supplier/name}" />
-                        <Text text="{requestDate}" />
-                        <ObjectStatus text="{status}" />
-                    </cells>
-                </ColumnListItem>
-            </items>
-        </Table>
+        <!-- Enhanced SmartTable -->
+        <smartTable:SmartTable
+            id="smartTable"
+            entitySet="ProcurementRequests"
+            tableType="Table"
+            useVariantManagement="true"
+            useTablePersonalisation="true"
+            header="Procurement Request List"
+            smartFilterId="smartFilterBar"
+            persistencyKey="SmartTableRequests"
+            enableAutoBinding="true"
+            editable="false"
+            showRowCount="true"
+            enableAutoColumnWidth="true"
+        >
+        </smartTable:SmartTable>
 
     </Page>
 </mvc:View>

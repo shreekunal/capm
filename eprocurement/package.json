@@ -30,16 +30,12 @@
     "deploy": "cf deploy mta_archives/archive.mtar --retries 1"
   },
   "cds": {
-  "requires": {
-    "[production]": {
-      "auth": "xsuaa"
+    "requires": {
+      "[production]": {
+        "auth": "xsuaa"
+      }
     }
   },
-  "odata": {
-    "version": "v4"
-  }
-}
-,
   "sapux": [
     "app/project1",
     "app/project1"
