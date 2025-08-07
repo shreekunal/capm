@@ -182,11 +182,6 @@
                     <PropertyRef Name="ID"/>
                 </Key>
                 <Property Name="ID" Type="Edm.Guid" Nullable="false"/>
-                <Property Name="createdAt" Type="Edm.DateTimeOffset" Precision="7"/>
-                <Property Name="createdBy" Type="Edm.String" MaxLength="255"/>
-                <Property Name="modifiedAt" Type="Edm.DateTimeOffset" Precision="7"/>
-                <Property Name="modifiedBy" Type="Edm.String" MaxLength="255"/>
-                <NavigationProperty Name="product" Relationship="CatalogService.RequestItems_parent" FromRole="ProcurementRequests" ToRole="RequestItems"/>
                 <NavigationProperty Name="department" Relationship="CatalogService.ProcurementRequests_department" FromRole="ProcurementRequests" ToRole="Departments"/>
                 <Property Name="department_ID" Type="Edm.Guid"/>
                 <NavigationProperty Name="supplier" Relationship="CatalogService.ProcurementRequests_supplier" FromRole="ProcurementRequests" ToRole="Suppliers"/>
@@ -279,9 +274,7 @@
             </Association>
             <Association Name="RequestItems_parent">
                 <End Role="RequestItems" Type="CatalogService.RequestItems" Multiplicity="*"/>
-                <End Role="ProcurementRequests" Type="CatalogService.ProcurementRequests" Multiplicity="0..1">
-                    <OnDelete Action="Cascade"/>
-                </End>
+                <End Role="ProcurementRequests" Type="CatalogService.ProcurementRequests" Multiplicity="0..1"/>
                 <ReferentialConstraint>
                     <Principal Role="ProcurementRequests">
                         <PropertyRef Name="ID"/>
@@ -591,34 +584,6 @@
             </Annotations>
             <Annotations Target="CatalogService.ProcurementRequests/ID" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="Core.ComputedDefaultValue" Bool="true"/>
-            </Annotations>
-            <Annotations Target="CatalogService.ProcurementRequests/createdAt" xmlns="http://docs.oasis-open.org/odata/ns/edm">
-                <Annotation Term="UI.HiddenFilter" Bool="true"/>
-                <Annotation Term="UI.ExcludeFromNavigationContext" Bool="true"/>
-                <Annotation Term="Core.Immutable" Bool="true"/>
-                <Annotation Term="Core.Computed" Bool="true"/>
-                <Annotation Term="Common.Label" String="Created On"/>
-            </Annotations>
-            <Annotations Target="CatalogService.ProcurementRequests/createdBy" xmlns="http://docs.oasis-open.org/odata/ns/edm">
-                <Annotation Term="UI.HiddenFilter" Bool="true"/>
-                <Annotation Term="UI.ExcludeFromNavigationContext" Bool="true"/>
-                <Annotation Term="Core.Immutable" Bool="true"/>
-                <Annotation Term="Core.Computed" Bool="true"/>
-                <Annotation Term="Core.Description" String="User's unique ID"/>
-                <Annotation Term="Common.Label" String="Created By"/>
-            </Annotations>
-            <Annotations Target="CatalogService.ProcurementRequests/modifiedAt" xmlns="http://docs.oasis-open.org/odata/ns/edm">
-                <Annotation Term="UI.HiddenFilter" Bool="true"/>
-                <Annotation Term="UI.ExcludeFromNavigationContext" Bool="true"/>
-                <Annotation Term="Core.Computed" Bool="true"/>
-                <Annotation Term="Common.Label" String="Changed On"/>
-            </Annotations>
-            <Annotations Target="CatalogService.ProcurementRequests/modifiedBy" xmlns="http://docs.oasis-open.org/odata/ns/edm">
-                <Annotation Term="UI.HiddenFilter" Bool="true"/>
-                <Annotation Term="UI.ExcludeFromNavigationContext" Bool="true"/>
-                <Annotation Term="Core.Computed" Bool="true"/>
-                <Annotation Term="Core.Description" String="User's unique ID"/>
-                <Annotation Term="Common.Label" String="Changed By"/>
             </Annotations>
             <Annotations Target="CatalogService.ProcurementRequests/status" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="Validation.AllowedValues">

@@ -1,7 +1,7 @@
 ## Application Details
 |               |
 | ------------- |
-|**Generation Date and Time**<br>Wed Aug 06 2025 12:10:00 GMT+0000 (Coordinated Universal Time)|
+|**Generation Date and Time**<br>Wed Aug 06 2025 20:31:48 GMT+0000 (Coordinated Universal Time)|
 |**App Generator**<br>SAP Fiori Application Generator|
 |**App Generator Version**<br>1.18.4|
 |**Generation Platform**<br>SAP Business Application Studio|
@@ -9,7 +9,7 @@
 |**Service Type**<br>SAP System (ABAP On-Premise)|
 |**Service URL**<br>https://6297dd32trial-dev-eprocurement-srv.cfapps.us10-001.hana.ondemand.com/v2/odata/v4/catalog|
 |**Module Name**<br>project4|
-|**Application Title**<br>Fiori app 4|
+|**Application Title**<br>Fiori App 4|
 |**Namespace**<br>|
 |**UI5 Theme**<br>sap_horizon|
 |**UI5 Version**<br>1.138.1|

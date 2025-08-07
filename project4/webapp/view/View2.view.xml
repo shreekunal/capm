@@ -1,0 +1,99 @@
+<mvc:View
+    controllerName="project4.controller.View2"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:form="sap.ui.layout.form"
+    xmlns:uxap="sap.uxap"
+    height="100%">
+
+    <Page id="page" showFooter="true">
+        <uxap:ObjectPageLayout
+            id="ObjectPageLayout"
+            showTitleInHeaderContent="true"
+            upperCaseAnchorBar="false"
+            binding="{/ProcurementRequests('TEMP')}"> <!-- Will be set in controller -->
+
+            <uxap:headerTitle>
+                <uxap:ObjectPageDynamicHeaderTitle>
+                    <uxap:expandedHeading>
+                        <HBox>
+                            <Title text="Procurement Request" />
+                        </HBox>
+                    </uxap:expandedHeading>
+                </uxap:ObjectPageDynamicHeaderTitle>
+            </uxap:headerTitle>
+
+            <uxap:sections>
+                <uxap:ObjectPageSection title="General Information">
+                    <uxap:subSections>
+                        <uxap:ObjectPageSubSection>
+                            <uxap:blocks>
+                                <form:SimpleForm
+                                    editable="true"
+                                    layout="ResponsiveGridLayout"
+                                    labelSpanXL="3" labelSpanL="3" labelSpanM="4"
+                                    columnsXL="2" columnsL="2" columnsM="1"
+                                    adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4" emptySpanM="0">
+
+                                    <Label text="Department" />
+                                    <Input value="{department/departmentName}" showValueHelp="true" valueHelpRequest="onDepartmentValueHelp" />
+
+                                    <Label text="Supplier" />
+                                    <Input value="{supplier/name}" showValueHelp="true" valueHelpRequest="onSupplierValueHelp" />
+
+                                    <Label text="Request Date" />
+                                    <DatePicker value="{requestDate}" displayFormat="long" valueFormat="yyyy-MM-dd" />
+
+                                    <Label text="Requested By" />
+                                    <Input value="{requestedBy}" />
+
+                                </form:SimpleForm>
+                            </uxap:blocks>
+                        </uxap:ObjectPageSubSection>
+                    </uxap:subSections>
+                </uxap:ObjectPageSection>
+
+                <uxap:ObjectPageSection title="Product List">
+                    <uxap:subSections>
+                        <uxap:ObjectPageSubSection>
+                            <VBox>
+                                <Toolbar>
+                                    <Title text="Products" />
+                                    <ToolbarSpacer />
+                                    <Button text="Add" icon="sap-icon://add" press="onAddProductRow" />
+                                    <Button text="Delete" icon="sap-icon://delete" press="onDeleteProductRow" />
+                                </Toolbar>
+
+                                <Table id="productTable" items="{product}" mode="MultiSelect">
+                                    <columns>
+                                        <Column><Text text="Product Name" /></Column>
+                                        <Column><Text text="Quantity" /></Column>
+                                        <Column><Text text="Unit" /></Column>
+                                    </columns>
+                                    <items>
+                                        <ColumnListItem>
+                                            <cells>
+                                                <Input value="{productName}" />
+                                                <Input value="{quantity}" type="Number" />
+                                                <Input value="{unit}" />
+                                            </cells>
+                                        </ColumnListItem>
+                                    </items>
+                                </Table>
+                            </VBox>
+                        </uxap:ObjectPageSubSection>
+                    </uxap:subSections>
+                </uxap:ObjectPageSection>
+            </uxap:sections>
+
+            <uxap:footer>
+                <OverflowToolbar>
+                    <ToolbarSpacer />
+                    <Button type="Emphasized" text="Submit" press="onSubmit" />
+                    <Button type="Reject" text="Cancel" press="onCancel" />
+                </OverflowToolbar>
+            </uxap:footer>
+
+        </uxap:ObjectPageLayout>
+    </Page>
+</mvc:View>

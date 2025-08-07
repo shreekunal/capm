@@ -13,7 +13,7 @@
     "sourceTemplate": {
       "id": "@sap/generator-fiori:basic",
       "version": "1.18.4",
-      "toolsId": "4ab6151e-09ce-49fe-9310-dfc5f06aaa8f"
+      "toolsId": "3b8e75f6-59ba-4f01-911c-a21d9de76f98"
     },
     "dataSources": {
       "mainService": {
@@ -22,7 +22,8 @@
         "settings": {
           "annotations": [],
           "localUri": "localService/mainService/metadata.xml",
-          "odataVersion": "2.0"
+          "odataVersion": "2.0",
+          "useBatch": false
         }
       }
     }
@@ -95,12 +96,23 @@
           "target": [
             "TargetView1"
           ]
+        },
+        {
+          "name": "RouteView2",
+          "pattern": "view2",
+          "target": [
+            "TargetView2"
+          ]
         }
       ],
       "targets": {
         "TargetView1": {
           "id": "View1",
           "name": "View1"
+        },
+        "TargetView2": {
+          "id": "View2",
+          "name": "View2"
         }
       }
     },
