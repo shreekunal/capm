@@ -4,11 +4,12 @@
     xmlns="sap.m"
     xmlns:form="sap.ui.layout.form"
     xmlns:uxap="sap.uxap"
+    xmlns:core="sap.ui.core"
     height="100%"
 >
     <Page
-        showFooter="true"
         title="Procurement Request"
+        showFooter="true"
     >
         <footer>
             <OverflowToolbar>
@@ -42,7 +43,7 @@
             </uxap:headerTitle>
 
             <uxap:sections>
-                <!-- General Information -->
+                <!-- General Information Section -->
                 <uxap:ObjectPageSection title="General Information">
                     <uxap:subSections>
                         <uxap:ObjectPageSubSection>
@@ -62,22 +63,20 @@
                                         text="Department"
                                         required="true"
                                     />
-                                    <Input
-                                        showValueHelp="true"
-                                        valueHelpRequest=".onDepartmentValueHelp"
-                                        editable="false"
-                                        value="{ui>/selectedDepartment/departmentName}"
+                                    <Button
+                                        id="DepartmentButton"
+                                        text="{ui>/selectedDepartmentName}"
+                                        press=".onDeptHelpRequest"
                                     />
 
                                     <Label
                                         text="Supplier"
                                         required="true"
                                     />
-                                    <Input
-                                        showValueHelp="true"
-                                        valueHelpRequest=".onSupplierValueHelp"
-                                        editable="false"
-                                        value="{ui>/selectedSupplier/name}"
+                                    <Button
+                                        id="SupplierButton"
+                                        text="{ui>/selectedSuppname}"
+                                        press=".onSuppHelpRequest"
                                     />
 
                                     <Label
@@ -88,20 +87,24 @@
                                         value="{ui>/requestDate}"
                                         valueFormat="yyyy-MM-dd"
                                         displayFormat="long"
+                                        editable="false"
                                     />
 
                                     <Label
                                         text="Requested By"
                                         required="true"
                                     />
-                                    <Input value="{ui>/requestedBy}" />
+                                    <Input
+                                        value="Amin"
+                                        editable="false"
+                                    />
                                 </form:SimpleForm>
                             </uxap:blocks>
                         </uxap:ObjectPageSubSection>
                     </uxap:subSections>
                 </uxap:ObjectPageSection>
 
-                <!-- Product List -->
+                <!-- Product List Section -->
                 <uxap:ObjectPageSection title="Product List">
                     <uxap:subSections>
                         <uxap:ObjectPageSubSection>
@@ -125,6 +128,7 @@
                                     id="productTable"
                                     mode="MultiSelect"
                                     items="{ui>/product}"
+                                    class="sapUiResponsiveMargin"
                                 >
                                     <columns>
                                         <Column>
@@ -137,6 +141,7 @@
                                             <Text text="Unit" />
                                         </Column>
                                     </columns>
+
                                     <items>
                                         <ColumnListItem>
                                             <cells>
@@ -145,16 +150,55 @@
                                                     showValueHelp="true"
                                                     valueHelpRequest=".onProductValueHelp"
                                                     editable="true"
+                                                    placeholder="Select product"
                                                 />
                                                 <Input
                                                     value="{ui>quantity}"
                                                     type="Number"
                                                     editable="true"
+                                                    placeholder="Quantity"
                                                 />
-                                                <Input
-                                                    value="{ui>unit}"
+                                                <Select
+                                                    selectedKey="{ui>unit}"
                                                     editable="true"
-                                                />
+                                                >
+                                                    <core:Item
+                                                        key="EA"
+                                                        text="EA"
+                                                    />
+                                                    <core:Item
+                                                        key="BOX"
+                                                        text="BOX"
+                                                    />
+                                                    <core:Item
+                                                        key="KG"
+                                                        text="KG"
+                                                    />
+                                                    <core:Item
+                                                        key="L"
+                                                        text="L"
+                                                    />
+                                                    <core:Item
+                                                        key="M"
+                                                        text="M"
+                                                    />
+                                                    <core:Item
+                                                        key="CM"
+                                                        text="CM"
+                                                    />
+                                                    <core:Item
+                                                        key="PACK"
+                                                        text="PACK"
+                                                    />
+                                                    <core:Item
+                                                        key="SET"
+                                                        text="SET"
+                                                    />
+                                                    <core:Item
+                                                        key="ROLL"
+                                                        text="ROLL"
+                                                    />
+                                                </Select>
                                             </cells>
                                         </ColumnListItem>
                                     </items>
@@ -163,7 +207,6 @@
                         </uxap:ObjectPageSubSection>
                     </uxap:subSections>
                 </uxap:ObjectPageSection>
-
             </uxap:sections>
         </uxap:ObjectPageLayout>
     </Page>

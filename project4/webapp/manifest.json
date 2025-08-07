@@ -69,7 +69,11 @@
         "dataSource": "mainService",
         "settings": {
           "defaultBindingMode": "TwoWay",
-          "useBatch": true
+          "useBatch": false,
+          "defaultCountMode": "Request",
+          "metadataUrlParams": {
+            "sap-context-token": "sap-context-token"
+          }
         }
       },
       "resources": {

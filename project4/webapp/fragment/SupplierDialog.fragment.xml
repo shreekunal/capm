@@ -1,0 +1,19 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+    <SelectDialog
+        id="SupplierselectDialog"
+        title="Select Supplier"
+        noDataText="No Suppliers found"
+        search="onSuppSearch"
+        confirm="onSuppDialogClose"
+        cancel="onSuppDialogClose"
+        items="{
+            path: '/Suppliers',
+            sorter: { path: 'name' }
+        }">
+        <StandardListItem
+            id="SuppList"
+            title="{name}"
+            description="{vatNumber}"
+            type="Active" />
+    </SelectDialog>
+</core:FragmentDefinition>

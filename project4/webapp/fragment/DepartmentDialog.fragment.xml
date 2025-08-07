@@ -1,0 +1,24 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+>
+    <SelectDialog
+        id="departmentSelectDialog"
+        title="Select Department"
+        noDataText="No departments found"
+        search="onDeptSearch"
+        confirm="onDeptDialogClose"
+        cancel="onDeptDialogClose"
+        items="{
+            path: '/Departments',
+            sorter: { path: 'departmentName' }
+        }"
+    >
+        <StandardListItem
+            id="DeptList"
+            title="{departmentName}"
+            description="{costCenter}"
+            type="Active"
+        />
+    </SelectDialog>
+</core:FragmentDefinition>
