@@ -164,8 +164,8 @@ sap.ui.define([
         
                     aProducts.forEach(p => {
                         const oItem = {
-                            request_ID: requestId,
-                            product_ID: p.productName,
+                            parent_ID: requestId,  // or parent: requestId based on your OData model handling
+                            productName: p.productName,
                             quantity: parseFloat(p.quantity),
                             unit: p.unit
                         };
