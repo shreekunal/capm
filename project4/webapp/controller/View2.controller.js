@@ -2,9 +2,10 @@ sap.ui.define([
     "sap/ui/core/mvc/Controller",
     "sap/ui/core/Fragment",
     "sap/m/MessageToast",
+    "sap/m/MessageBox",
     "sap/ui/model/Filter",
     "sap/ui/model/FilterOperator"
-], function (Controller, Fragment, MessageToast, Filter, FilterOperator) {
+], function (Controller, Fragment, MessageToast, MessageBox, Filter, FilterOperator) {
     "use strict";
 
     return Controller.extend("project4.controller.View2", {
@@ -49,10 +50,15 @@ sap.ui.define([
             var oSelectedItem = oEvent.getParameter("selectedItem");
             if (oSelectedItem) {
                 var sDeptName = oSelectedItem.getTitle();
-                this.getView().getModel("ui").setProperty("/selectedDepartmentName", sDeptName);
+                var sDeptId = oSelectedItem.getBindingContext().getProperty("ID"); // assuming property is ID
+        
+                const oUIModel = this.getView().getModel("ui");
+                oUIModel.setProperty("/selectedDepartmentName", sDeptName);
+                oUIModel.setProperty("/selectedDepartmentId", sDeptId);
             }
             oEvent.getSource().getBinding("items").filter([]);
-        },
+        }
+        ,
 
         // Supplier SelectDialog
         onSuppHelpRequest: function () {
@@ -84,41 +90,47 @@ sap.ui.define([
             var oSelectedItem = oEvent.getParameter("selectedItem");
             if (oSelectedItem) {
                 var sSuppName = oSelectedItem.getTitle();
-                this.getView().getModel("ui").setProperty("/selectedSuppname", sSuppName);
+                var sSuppId = oSelectedItem.getBindingContext().getProperty("ID"); // assuming property is ID
+        
+                const oUIModel = this.getView().getModel("ui");
+                oUIModel.setProperty("/selectedSuppname", sSuppName);
+                oUIModel.setProperty("/selectedSupplierId", sSuppId);
             }
             oEvent.getSource().getBinding("items").filter([]);
-        },
+        }
+        ,
 
 
         onAddProductRow: function () {
             const oModel = this.getView().getModel("ui");
             const aProducts = oModel.getProperty("/product") || [];
-        
+
             aProducts.push({
                 productName: "",
                 quantity: "",
                 unit: "EA" // default unit
             });
-        
+
             oModel.setProperty("/product", aProducts);
         },
-        
+
         onDeleteProductRow: function () {
             const oTable = this.byId("productTable");
-            const aSelectedIndices = oTable.getSelectedIndices();
+            const aSelectedItems = oTable.getSelectedItems();
             const oModel = this.getView().getModel("ui");
             let aProducts = oModel.getProperty("/product");
-        
-            // Remove selected rows
+
+            // Remove selected rows based on binding context
             const aNewList = aProducts.filter(function (item, index) {
-                return !oTable.isIndexSelected(index);
+                const oItem = oTable.getItems()[index];
+                return !aSelectedItems.includes(oItem);
             });
-        
+
             oModel.setProperty("/product", aNewList);
             oTable.removeSelections(true);
         },
-        
-        
+
+
         onSubmit: function () {
             const oView = this.getView();
             const oUIModel = oView.getModel("ui");
@@ -133,30 +145,54 @@ sap.ui.define([
                 MessageBox.error("Please fill all required fields and add at least one product.");
                 return;
             }
-        
+            
+            // Step 1: Create ProcurementRequest
             const oNewRequest = {
                 department_ID: sDepartmentId,
                 supplier_ID: sSupplierId,
                 requestDate: sRequestDate,
-                status: "New",
-                RequestItems: aProducts.map(p => ({
-                    productName: p.productName,
-                    quantity: parseFloat(p.quantity),
-                    unit: p.unit
-                }))
+                status: "New"
             };
         
             oODataModel.create("/ProcurementRequests", oNewRequest, {
-                success: () => {
-                    MessageToast.show("Request submitted successfully");
-                    oUIModel.setProperty("/product", []);
-                    // Optionally clear other fields too
+                success: (oCreatedRequest) => {
+                    const requestId = oCreatedRequest.ID;
+        
+                    // Step 2: Create each RequestItem
+                    let pending = aProducts.length;
+                    if (pending === 0) return;
+        
+                    aProducts.forEach(p => {
+                        const oItem = {
+                            request_ID: requestId,
+                            product_ID: p.productName,
+                            quantity: parseFloat(p.quantity),
+                            unit: p.unit
+                        };
+                        if (!p.productName || isNaN(parseFloat(p.quantity))) {
+                            MessageBox.error("Each product must have a valid name and quantity.");
+                            return;
+                        }
+                        oODataModel.create("/RequestItems", oItem, {
+                            success: () => {
+                                pending--;
+                                if (pending === 0) {
+                                    MessageToast.show("Request submitted successfully");
+                                    oUIModel.setProperty("/product", []);
+                                }
+                            },
+                            error: () => {
+                                MessageBox.error("Failed to create one or more request items.");
+                            }
+                        });
+                    });
                 },
-                error: (oError) => {
-                    MessageBox.error("Submission failed");
+                error: () => {
+                    MessageBox.error("Submission failed. Could not create Procurement Request.");
                 }
             });
-        },
+        }
+        ,
 
         onCancel: function () {
             const oUIModel = this.getView().getModel("ui");
@@ -172,7 +208,7 @@ sap.ui.define([
                 }
             });
         }
-        
-        
+
+
     });
 });
