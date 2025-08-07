@@ -4,15 +4,31 @@
     xmlns="sap.m"
     xmlns:form="sap.ui.layout.form"
     xmlns:uxap="sap.uxap"
-    height="100%">
+    height="100%"
+>
+    <Page showFooter="true">
+        <!-- Footer must be in Page, not ObjectPageLayout -->
+        <footer>
+            <OverflowToolbar>
+                <ToolbarSpacer />
+                <Button
+                    type="Emphasized"
+                    text="Submit"
+                    press=".onSubmit"
+                />
+                <Button
+                    type="Reject"
+                    text="Cancel"
+                    press=".onCancel"
+                />
+            </OverflowToolbar>
+        </footer>
 
-    <Page id="page" showFooter="true">
         <uxap:ObjectPageLayout
             id="ObjectPageLayout"
             showTitleInHeaderContent="true"
             upperCaseAnchorBar="false"
-            binding="{/ProcurementRequests('TEMP')}"> <!-- Will be set in controller -->
-
+        >
             <uxap:headerTitle>
                 <uxap:ObjectPageDynamicHeaderTitle>
                     <uxap:expandedHeading>
@@ -24,6 +40,7 @@
             </uxap:headerTitle>
 
             <uxap:sections>
+                <!-- General Information Section -->
                 <uxap:ObjectPageSection title="General Information">
                     <uxap:subSections>
                         <uxap:ObjectPageSubSection>
@@ -31,28 +48,56 @@
                                 <form:SimpleForm
                                     editable="true"
                                     layout="ResponsiveGridLayout"
-                                    labelSpanXL="3" labelSpanL="3" labelSpanM="4"
-                                    columnsXL="2" columnsL="2" columnsM="1"
-                                    adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4" emptySpanM="0">
+                                    labelSpanXL="3"
+                                    labelSpanL="3"
+                                    labelSpanM="4"
+                                    columnsXL="2"
+                                    columnsL="2"
+                                    columnsM="1"
+                                    adjustLabelSpan="false"
+                                >
+                                    <Label
+                                        text="Department"
+                                        required="true"
+                                    />
+                                    <Input
+                                        value="{/departmentName}"
+                                        showValueHelp="true"
+                                        valueHelpRequest=".onDepartmentValueHelp"
+                                    />
 
-                                    <Label text="Department" />
-                                    <Input value="{department/departmentName}" showValueHelp="true" valueHelpRequest="onDepartmentValueHelp" />
+                                    <Label
+                                        text="Supplier"
+                                        required="true"
+                                    />
+                                    <Input
+                                        value="{/supplierName}"
+                                        showValueHelp="true"
+                                        valueHelpRequest=".onSupplierValueHelp"
+                                    />
 
-                                    <Label text="Supplier" />
-                                    <Input value="{supplier/name}" showValueHelp="true" valueHelpRequest="onSupplierValueHelp" />
+                                    <Label
+                                        text="Request Date"
+                                        required="true"
+                                    />
+                                    <DatePicker
+                                        value="{/requestDate}"
+                                        valueFormat="yyyy-MM-dd"
+                                        displayFormat="long"
+                                    />
 
-                                    <Label text="Request Date" />
-                                    <DatePicker value="{requestDate}" displayFormat="long" valueFormat="yyyy-MM-dd" />
-
-                                    <Label text="Requested By" />
-                                    <Input value="{requestedBy}" />
-
+                                    <Label
+                                        text="Requested By"
+                                        required="true"
+                                    />
+                                    <Input value="{/requestedBy}" />
                                 </form:SimpleForm>
                             </uxap:blocks>
                         </uxap:ObjectPageSubSection>
                     </uxap:subSections>
                 </uxap:ObjectPageSection>
 
+                <!-- Product List Section -->
                 <uxap:ObjectPageSection title="Product List">
                     <uxap:subSections>
                         <uxap:ObjectPageSubSection>
@@ -60,22 +105,97 @@
                                 <Toolbar>
                                     <Title text="Products" />
                                     <ToolbarSpacer />
-                                    <Button text="Add" icon="sap-icon://add" press="onAddProductRow" />
-                                    <Button text="Delete" icon="sap-icon://delete" press="onDeleteProductRow" />
+                                    <Button
+                                        text="Add"
+                                        icon="sap-icon://add"
+                                        press=".onAddProductRow"
+                                    />
+                                    <Button
+                                        text="Delete"
+                                        icon="sap-icon://delete"
+                                        press=".onDeleteProductRow"
+                                    />
                                 </Toolbar>
 
-                                <Table id="productTable" items="{product}" mode="MultiSelect">
+                                <Table
+                                    id="productTable"
+                                    mode="MultiSelect"
+                                    items="{/ProductList}"
+                                >
                                     <columns>
-                                        <Column><Text text="Product Name" /></Column>
-                                        <Column><Text text="Quantity" /></Column>
-                                        <Column><Text text="Unit" /></Column>
+                                        <Column>
+                                            <Text text="Product Name" />
+                                        </Column>
+                                        <Column>
+                                            <Text text="Quantity" />
+                                        </Column>
+                                        <Column>
+                                            <Text text="Unit" />
+                                        </Column>
                                     </columns>
                                     <items>
                                         <ColumnListItem>
                                             <cells>
-                                                <Input value="{productName}" />
-                                                <Input value="{quantity}" type="Number" />
-                                                <Input value="{unit}" />
+                                                <Input
+                                                    value="{ProductName}"
+                                                    showValueHelp="true"
+                                                    valueHelpRequest=".onProductValueHelp"
+                                                />
+                                                <Input
+                                                    value="{Quantity}"
+                                                    type="Number"
+                                                />
+                                                <Input value="{Unit}" />
+                                            </cells>
+                                        </ColumnListItem>
+                                    </items>
+                                </Table>
+                            </VBox>
+                        </uxap:ObjectPageSubSection>
+                    </uxap:subSections>
+                </uxap:ObjectPageSection>
+
+                <!-- All Procurement Requests Section -->
+                <uxap:ObjectPageSection title="All Procurement Requests">
+                    <uxap:subSections>
+                        <uxap:ObjectPageSubSection>
+                            <VBox>
+                                <Table
+                                    id="allRequestsTable"
+                                    inset="false"
+                                    mode="SingleSelectMaster"
+                                    items="{/ProcurementRequests}"
+                                >
+                                    <columns>
+                                        <Column>
+                                            <Text text="Request ID" />
+                                        </Column>
+                                        <Column>
+                                            <Text text="Department" />
+                                        </Column>
+                                        <Column>
+                                            <Text text="Supplier" />
+                                        </Column>
+                                        <Column>
+                                            <Text text="Request Date" />
+                                        </Column>
+                                        <Column>
+                                            <Text text="Status" />
+                                        </Column>
+                                    </columns>
+                                    <items>
+                                        <ColumnListItem
+                                            type="Navigation"
+                                            press=".onRequestSelect"
+                                        >
+                                            <cells>
+                                                <Text text="{cuid}" />
+                                                <Text
+                                                    text="{department/departmentName}"
+                                                />
+                                                <Text text="{supplier/name}" />
+                                                <Text text="{requestDate}" />
+                                                <Text text="{status}" />
                                             </cells>
                                         </ColumnListItem>
                                     </items>
@@ -85,15 +205,6 @@
                     </uxap:subSections>
                 </uxap:ObjectPageSection>
             </uxap:sections>
-
-            <uxap:footer>
-                <OverflowToolbar>
-                    <ToolbarSpacer />
-                    <Button type="Emphasized" text="Submit" press="onSubmit" />
-                    <Button type="Reject" text="Cancel" press="onCancel" />
-                </OverflowToolbar>
-            </uxap:footer>
-
         </uxap:ObjectPageLayout>
     </Page>
 </mvc:View>
