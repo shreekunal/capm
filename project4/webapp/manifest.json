@@ -23,7 +23,7 @@
           "annotations": [],
           "localUri": "localService/mainService/metadata.xml",
           "odataVersion": "2.0",
-          "useBatch": false
+          "useBatch": true
         }
       }
     }
@@ -65,17 +65,20 @@
         }
       },
       "": {
+        "type": "sap.ui.model.odata.v2.ODataModel",
         "dataSource": "mainService",
-        "preload": true,
-        "settings": {}
-      }
-    },
-    "resources": {
-      "css": [
-        {
-          "uri": "css/style.css"
+        "settings": {
+          "defaultBindingMode": "TwoWay",
+          "useBatch": true
         }
-      ]
+      },
+      "resources": {
+        "css": [
+          {
+            "uri": "css/style.css"
+          }
+        ]
+      }
     },
     "routing": {
       "config": {
@@ -93,16 +96,12 @@
         {
           "name": "RouteView1",
           "pattern": ":?query:",
-          "target": [
-            "TargetView1"
-          ]
+          "target": ["TargetView1"]
         },
         {
           "name": "RouteView2",
           "pattern": "view2",
-          "target": [
-            "TargetView2"
-          ]
+          "target": ["TargetView2"]
         }
       ],
       "targets": {
