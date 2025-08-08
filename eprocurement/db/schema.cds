@@ -58,12 +58,11 @@ entity Products : cuid, managed {
 }
 
 entity ProcurementRequests : cuid, managed {
-  product     : Composition of many RequestItems
-                  on product.parent = $self;
+  items       : Composition of many RequestItems
+                  on items.parent = $self;
 
   department  : Association to Departments;
   supplier    : Association to Suppliers;
-  quantity    : Integer;
   requestedBy : String(100);
   requestDate : Date;
   status      : String(20) @assert.range enum {
@@ -78,7 +77,8 @@ entity ProcurementRequests : cuid, managed {
 
 entity RequestItems : cuid {
   parent      : Association to ProcurementRequests;
+  product     : Association to Products;   // link to actual product
   productName : String;
-  quantity    : Decimal;
+  quantity    : Decimal(9,3);
   unit        : String;
 }

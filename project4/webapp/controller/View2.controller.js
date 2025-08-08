@@ -151,7 +151,9 @@ sap.ui.define([
                 department_ID: sDepartmentId,
                 supplier_ID: sSupplierId,
                 requestDate: sRequestDate,
-                status: "New"
+                status: "New",
+                requestedBy: "Admin",
+                comments: "Created by Kunal Just Now",
             };
 
             oODataModel.create("/ProcurementRequests", oNewRequest, {

@@ -7,8 +7,10 @@
     xmlns:core="sap.ui.core"
     displayBlock="true"
 >
-    <Page id="requestListPage" showFooter="false">
-    
+    <Page
+        id="requestListPage"
+        showFooter="false"
+    >
         <!-- Enhanced SmartFilterBar -->
         <sfb:SmartFilterBar
             id="smartFilterBar"
@@ -20,8 +22,7 @@
             enableBasicSearch="true"
             basicSearchFieldName="requestedBy"
             search="onSearch"
-        >
-        </sfb:SmartFilterBar>
+        />
 
         <!-- Navigation Button to View2 -->
         <Toolbar id="toolbar">
@@ -32,7 +33,6 @@
                 press="onNavigateToView2"
             />
         </Toolbar>
-
 
         <!-- Enhanced SmartTable -->
         <smartTable:SmartTable
@@ -48,9 +48,7 @@
             editable="false"
             showRowCount="true"
             enableAutoColumnWidth="true"
-            initiallyVisibleFields="ID,department_ID,supplier_ID,quantity,requestedBy,requestDate,status,comments"
-        >
-        </smartTable:SmartTable>
-
+            initiallyVisibleFields="ID,department_ID,supplier_ID,requestedBy,requestDate,status,comments"
+        />
     </Page>
 </mvc:View>

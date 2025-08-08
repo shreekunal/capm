@@ -1,21 +1,21 @@
-ID,department_ID,supplier_ID,quantity,requestedBy,requestDate,status,comments
-6e943e4c-9ff1-4b7a-b8a0-d851ccbbc1c2,0d7a3c60-7a27-4897-bb47-3b3e8b1bd0cd,78ebf24a-fd89-4039-8c65-c362e84c2b67,10,Anna Smith,2023-05-01,Submitted,Request for laptops for new employees
-6e643e32-0b1c-4982-914f-e1d1d4c8b7d5,71e9b01e-98d9-4df1-9fd5-18979db4dc8f,20b6dbd5-3195-4b68-9991-5891ae095474,100,John Roe,2023-05-11,New,Office paper stocks running low
-d3f05842-0b96-4383-97ae-3cf015f9bfe5,2042d234-e638-4a01-9b3a-13bc5f1b4d43,78ebf24a-fd89-4039-8c65-c362e84c2b67,2,Lin Chen,2023-06-03,Ordered,Finance department printer replacement
-30ddcd61-5f3a-4f53-84ae-10514620e2c2,ece93d14-fef0-4683-81c0-3086243bb387,89d0135e-50de-49ef-860a-d05d1a8029a6,15,Emily Turner,2023-04-20,Approved,Purchased chairs for campaign team
-81f76e11-b670-42d5-8884-20b0cbac8dd5,b68cb9ed-d661-4eb0-a7b2-c52eb9db6742,a92c0f13-d4b7-4ce9-a5a3-dbf85ac32773,24,Gary Lee,2023-02-14,Received,HR needs new cabinets
-e0051224-d5ff-47a4-871f-84eb183ac1d6,3ef6b9d2-eafe-4e47-9787-b7e4394d1401,e2f31b57-2f32-4632-b4c9-0049f4b700f4,8,Lisa Wang,2023-01-18,New,Research cleaning solutions
-4dc3c5be-6a39-4b96-bf7a-52ecf073da70,fe3d2b88-33b1-4098-bcf5-1c845d4fdfef,9e87ea17-3722-4e0b-b131-df05ad437445,6,Martin Falck,2023-03-22,Submitted,Production requested label printers
-812c40a5-6896-4e79-a4c3-d1c26c712703,23952727-82fa-4eb4-b1b1-e78bc53d307d,2c10827f-3c3d-4e6e-b4b3-d5f2a1808a9a,30,Isabel Becker,2023-06-10,Ordered,Warehouse re-fit shelving units
-11850e61-0f34-49b1-87c5-4b29411efc9a,eb75b3e5-0588-4bcf-bb1c-55b5cf050238,33871b93-437f-4e69-a99f-f43dbb0e3f2c,40,Peter Adams,2023-07-05,New,Paper pads for contract documentation
-e91de214-176f-4eb1-9eb2-45e4937798e7,88f345db-b4a5-43b4-8106-76f22b08745b,eea73d0d-24a2-4f99-8369-c26f60e97be6,5,David Liu,2023-07-12,Submitted,Catering machines for support center
-b80db674-2d28-4f2c-8a3f-3f2fc4732f0d,cac0a7fa-365e-46e8-bdd8-b2c0d5f67990,6f65543e-c771-43f5-b886-90fdbfa3c65c,18,Samuel King,2023-04-15,Submitted,Label machines for shipping
-d2110ff9-96cb-440e-a9a6-d8cc6c97e7bb,b42983ae-7655-4c8f-9389-f2194f6a3f48,1265d1c7-d2e2-4ff7-9ddf-6313020d5c46,12,Karen Vo,2023-05-23,Approved,Facility chairs for repair zone
-f840eb02-70d7-4eb4-95df-3d91b9633e9a,e2671281-7e82-4ff1-95d7-9e69026de6a6,ffdb754b-b5e1-43cb-938c-2cbf53179da4,6,Shawn Miles,2023-06-07,New,Headsets for quality calls
-c0119a4a-83d5-4345-81ec-6b3d0dbcb891,a61ff1ce-2fbb-4d8c-89e9-1f4ed5ef12f3,7f9d0155-3f9b-4304-9c13-f95fe26f3535,8,Megan Lee,2023-07-03,Approved,Reception area lamp order
-c87a94cf-768c-4299-a41a-37cb3a77d2b8,6a70b43b-3f79-44e2-890c-274dd6a76097,69c0b693-fcd2-412f-a6de-3039d4e4f131,3,Paul Remer,2023-06-18,Blocked,Executive laptop order on hold
-5e6e27db-878f-4d45-8991-df5b46a4f504,4ab27082-9908-4766-9a79-7eb8fe6c05e4,6e884a34-dfa2-4648-9b9e-cf24197f472c,25,Olga Petrov,2023-03-23,Ordered,Lab stools for R&D
-df33f6a0-570a-4ce3-84a4-56fd27fc09a0,13e7b7b2-26e2-4f53-a689-6d48b2b15cf0,25cdd8fc-67f4-4e88-9a02-3f20ac5d846c,11,Joan Ma,2023-02-28,Submitted,Standards compliance files
-af2694ce-d848-4d99-b0a5-9e2c82b94a20,b111f5d1-7bc4-4ad5-85ec-7de444987d1a,e68045d4-9906-41f1-86be-3df0043ee0ef,14,Amy Tran,2023-07-06,Approved,Promo bags for event giveaways
-a0c46596-3497-4046-84cb-3bd3a79e3486,1f94a1ef-6504-4dcb-87e8-90ceac44f801,4dcb2a96-1681-4c53-8b49-2b9dc2676182,13,Phil Grant,2023-06-25,Submitted,Lighting equipment for PR conference
-d59ff0a7-e4d2-4a43-a7f4-e960a6beef84,f9680613-5bbf-4ef9-8250-2de75fdc9289,0b8a8024-3e6d-4d06-a2d4-0a87c8a45db3,9,Bob Doyle,2023-01-30,New,First aid kits for security office
+ID,department_ID,supplier_ID,requestedBy,requestDate,status,comments
+6e943e4c-9ff1-4b7a-b8a0-d851ccbbc1c2,0d7a3c60-7a27-4897-bb47-3b3e8b1bd0cd,78ebf24a-fd89-4039-8c65-c362e84c2b67,Anna Smith,2023-05-01,Submitted,Request for laptops for new employees
+6e643e32-0b1c-4982-914f-e1d1d4c8b7d5,71e9b01e-98d9-4df1-9fd5-18979db4dc8f,20b6dbd5-3195-4b68-9991-5891ae095474,John Roe,2023-05-11,New,Office paper stocks running low
+d3f05842-0b96-4383-97ae-3cf015f9bfe5,2042d234-e638-4a01-9b3a-13bc5f1b4d43,78ebf24a-fd89-4039-8c65-c362e84c2b67,Lin Chen,2023-06-03,Ordered,Finance department printer replacement
+30ddcd61-5f3a-4f53-84ae-10514620e2c2,ece93d14-fef0-4683-81c0-3086243bb387,89d0135e-50de-49ef-860a-d05d1a8029a6,Emily Turner,2023-04-20,Approved,Purchased chairs for campaign team
+81f76e11-b670-42d5-8884-20b0cbac8dd5,b68cb9ed-d661-4eb0-a7b2-c52eb9db6742,a92c0f13-d4b7-4ce9-a5a3-dbf85ac32773,Gary Lee,2023-02-14,Received,HR needs new cabinets
+e0051224-d5ff-47a4-871f-84eb183ac1d6,3ef6b9d2-eafe-4e47-9787-b7e4394d1401,e2f31b57-2f32-4632-b4c9-0049f4b700f4,Lisa Wang,2023-01-18,New,Research cleaning solutions
+4dc3c5be-6a39-4b96-bf7a-52ecf073da70,fe3d2b88-33b1-4098-bcf5-1c845d4fdfef,9e87ea17-3722-4e0b-b131-df05ad437445,Martin Falck,2023-03-22,Submitted,Production requested label printers
+812c40a5-6896-4e79-a4c3-d1c26c712703,23952727-82fa-4eb4-b1b1-e78bc53d307d,2c10827f-3c3d-4e6e-b4b3-d5f2a1808a9a,Isabel Becker,2023-06-10,Ordered,Warehouse re-fit shelving units
+11850e61-0f34-49b1-87c5-4b29411efc9a,eb75b3e5-0588-4bcf-bb1c-55b5cf050238,33871b93-437f-4e69-a99f-f43dbb0e3f2c,Peter Adams,2023-07-05,New,Paper pads for contract documentation
+e91de214-176f-4eb1-9eb2-45e4937798e7,88f345db-b4a5-43b4-8106-76f22b08745b,eea73d0d-24a2-4f99-8369-c26f60e97be6,David Liu,2023-07-12,Submitted,Catering machines for support center
+b80db674-2d28-4f2c-8a3f-3f2fc4732f0d,cac0a7fa-365e-46e8-bdd8-b2c0d5f67990,6f65543e-c771-43f5-b886-90fdbfa3c65c,Samuel King,2023-04-15,Submitted,Label machines for shipping
+d2110ff9-96cb-440e-a9a6-d8cc6c97e7bb,b42983ae-7655-4c8f-9389-f2194f6a3f48,1265d1c7-d2e2-4ff7-9ddf-6313020d5c46,Karen Vo,2023-05-23,Approved,Facility chairs for repair zone
+f840eb02-70d7-4eb4-95df-3d91b9633e9a,e2671281-7e82-4ff1-95d7-9e69026de6a6,ffdb754b-b5e1-43cb-938c-2cbf53179da4,Shawn Miles,2023-06-07,New,Headsets for quality calls
+c0119a4a-83d5-4345-81ec-6b3d0dbcb891,a61ff1ce-2fbb-4d8c-89e9-1f4ed5ef12f3,7f9d0155-3f9b-4304-9c13-f95fe26f3535,Megan Lee,2023-07-03,Approved,Reception area lamp order
+c87a94cf-768c-4299-a41a-37cb3a77d2b8,6a70b43b-3f79-44e2-890c-274dd6a76097,69c0b693-fcd2-412f-a6de-3039d4e4f131,Paul Remer,2023-06-18,Blocked,Executive laptop order on hold
+5e6e27db-878f-4d45-8991-df5b46a4f504,4ab27082-9908-4766-9a79-7eb8fe6c05e4,6e884a34-dfa2-4648-9b9e-cf24197f472c,Olga Petrov,2023-03-23,Ordered,Lab stools for R&D
+df33f6a0-570a-4ce3-84a4-56fd27fc09a0,13e7b7b2-26e2-4f53-a689-6d48b2b15cf0,25cdd8fc-67f4-4e88-9a02-3f20ac5d846c,Joan Ma,2023-02-28,Submitted,Standards compliance files
+af2694ce-d848-4d99-b0a5-9e2c82b94a20,b111f5d1-7bc4-4ad5-85ec-7de444987d1a,e68045d4-9906-41f1-86be-3df0043ee0ef,Amy Tran,2023-07-06,Approved,Promo bags for event giveaways
+a0c46596-3497-4046-84cb-3bd3a79e3486,1f94a1ef-6504-4dcb-87e8-90ceac44f801,4dcb2a96-1681-4c53-8b49-2b9dc2676182,Phil Grant,2023-06-25,Submitted,Lighting equipment for PR conference
+d59ff0a7-e4d2-4a43-a7f4-e960a6beef84,f9680613-5bbf-4ef9-8250-2de75fdc9289,0b8a8024-3e6d-4d06-a2d4-0a87c8a45db3,Bob Doyle,2023-01-30,New,First aid kits for security office
