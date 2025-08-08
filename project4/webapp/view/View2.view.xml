@@ -107,7 +107,7 @@
                 <!-- Product List Section -->
                 <uxap:ObjectPageSection title="Product List">
                     <uxap:subSections>
-                        <uxap:ObjectPageSubSection>
+                        <uxap:ObjectPageSubSection class="sapUiSmallPadding">
                             <VBox>
                                 <Toolbar>
                                     <Title text="Products" />

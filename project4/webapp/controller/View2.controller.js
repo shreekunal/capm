@@ -51,7 +51,7 @@ sap.ui.define([
             if (oSelectedItem) {
                 var sDeptName = oSelectedItem.getTitle();
                 var sDeptId = oSelectedItem.getBindingContext().getProperty("ID"); // assuming property is ID
-        
+
                 const oUIModel = this.getView().getModel("ui");
                 oUIModel.setProperty("/selectedDepartmentName", sDeptName);
                 oUIModel.setProperty("/selectedDepartmentId", sDeptId);
@@ -91,7 +91,7 @@ sap.ui.define([
             if (oSelectedItem) {
                 var sSuppName = oSelectedItem.getTitle();
                 var sSuppId = oSelectedItem.getBindingContext().getProperty("ID"); // assuming property is ID
-        
+
                 const oUIModel = this.getView().getModel("ui");
                 oUIModel.setProperty("/selectedSuppname", sSuppName);
                 oUIModel.setProperty("/selectedSupplierId", sSuppId);
@@ -135,17 +135,17 @@ sap.ui.define([
             const oView = this.getView();
             const oUIModel = oView.getModel("ui");
             const oODataModel = oView.getModel(); // default OData model
-        
+
             const sDepartmentId = oUIModel.getProperty("/selectedDepartmentId");
             const sSupplierId = oUIModel.getProperty("/selectedSupplierId");
             const sRequestDate = oUIModel.getProperty("/requestDate");
             const aProducts = oUIModel.getProperty("/product");
-        
+
             if (!sDepartmentId || !sSupplierId || !sRequestDate || aProducts.length === 0) {
                 MessageBox.error("Please fill all required fields and add at least one product.");
                 return;
             }
-            
+
             // Step 1: Create ProcurementRequest
             const oNewRequest = {
                 department_ID: sDepartmentId,
@@ -153,15 +153,15 @@ sap.ui.define([
                 requestDate: sRequestDate,
                 status: "New"
             };
-        
+
             oODataModel.create("/ProcurementRequests", oNewRequest, {
                 success: (oCreatedRequest) => {
                     const requestId = oCreatedRequest.ID;
-        
+
                     // Step 2: Create each RequestItem
                     let pending = aProducts.length;
                     if (pending === 0) return;
-        
+
                     aProducts.forEach(p => {
                         const oItem = {
                             parent_ID: requestId,  // or parent: requestId based on your OData model handling
@@ -179,6 +179,8 @@ sap.ui.define([
                                 if (pending === 0) {
                                     MessageToast.show("Request submitted successfully");
                                     oUIModel.setProperty("/product", []);
+                                    var oRouter = this.getOwnerComponent().getRouter();
+                                    oRouter.navTo("RouteView1");
                                 }
                             },
                             error: () => {
@@ -191,8 +193,7 @@ sap.ui.define([
                     MessageBox.error("Submission failed. Could not create Procurement Request.");
                 }
             });
-        }
-        ,
+        },
 
         onCancel: function () {
             const oUIModel = this.getView().getModel("ui");

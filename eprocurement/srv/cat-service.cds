@@ -4,18 +4,7 @@ service CatalogService {
   entity Suppliers as projection on db.Suppliers;
   entity Departments as projection on db.Departments;
   entity Products as projection on db.Products;
-
-  entity ProcurementRequests as projection on db.ProcurementRequests {
-    key ID,
-    department,   
-    supplier,     
-    quantity,
-    requestedBy,
-    requestDate,
-    status,
-    comments
-  };
-
+  entity ProcurementRequests as projection on db.ProcurementRequests;
   entity RequestItems as projection on db.RequestItems;
 }
 

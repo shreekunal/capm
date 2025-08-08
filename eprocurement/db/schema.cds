@@ -63,7 +63,6 @@ entity ProcurementRequests : cuid, managed {
 
   department  : Association to Departments;
   supplier    : Association to Suppliers;
-
   quantity    : Integer;
   requestedBy : String(100);
   requestDate : Date;
