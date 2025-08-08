@@ -11,44 +11,75 @@
         id="requestListPage"
         showFooter="false"
     >
-        <!-- Enhanced SmartFilterBar -->
-        <sfb:SmartFilterBar
-            id="smartFilterBar"
-            entitySet="ProcurementRequests"
-            useToolbar="true"
-            showGoOnFB="true"
-            showClearOnFB="true"
-            persistencyKey="SmartFilterBarProcurement"
-            enableBasicSearch="true"
-            basicSearchFieldName="requestedBy"
-            search="onSearch"
-        />
-
-        <!-- Navigation Button to View2 -->
-        <Toolbar id="toolbar">
-            <Button
-                id="navbtn"
-                text="Raise Request"
-                icon="sap-icon://navigation-right-arrow"
-                press="onNavigateToView2"
+            <!-- Enhanced SmartFilterBar -->
+            <sfb:SmartFilterBar
+                id="smartFilterBar"
+                entitySet="ProcurementRequests"
+                useToolbar="true"
+                showGoOnFB="true"
+                showClearOnFB="true"
+                persistencyKey="SmartFilterBarProcurement"
+                enableBasicSearch="true"
+                basicSearchFieldName="requestedBy"
+                search="onSearch"
             />
-        </Toolbar>
 
-        <!-- Enhanced SmartTable -->
-        <smartTable:SmartTable
-            id="smartTable"
-            entitySet="ProcurementRequests"
-            tableType="Table"
-            useVariantManagement="true"
-            useTablePersonalisation="true"
-            header="Procurement Request List"
-            smartFilterId="smartFilterBar"
-            persistencyKey="SmartTableRequests"
-            enableAutoBinding="true"
-            editable="false"
-            showRowCount="true"
-            enableAutoColumnWidth="true"
-            initiallyVisibleFields="ID,department_ID,supplier_ID,requestedBy,requestDate,status,comments"
-        />
+            <!-- Navigation Button to View2 -->
+            <Toolbar id="toolbar">
+                <Button
+                    id="navbtn"
+                    text="Raise Request"
+                    icon="sap-icon://navigation-right-arrow"
+                    press="onNavigateToView2"
+                />
+            </Toolbar>
+
+            <!-- Enhanced SmartTable -->
+            <smartTable:SmartTable
+                id="smartTable"
+                entitySet="ProcurementRequests"
+                tableType="Table"
+                useVariantManagement="true"
+                useTablePersonalisation="true"
+                header="Procurement Request List"
+                smartFilterId="smartFilterBar"
+                persistencyKey="SmartTableRequests"
+                enableAutoBinding="true"
+                editable="false"
+                showRowCount="true"
+                enableAutoColumnWidth="true"
+                initiallyVisibleFields="ID,department_ID,supplier_ID,requestedBy,requestDate,status,comments"
+            />
+
+        <Panel expandable="true"
+    expanded="false" height="100%">
+            <sfb:SmartFilterBar
+                id="smartFilterBarForRequestItems"
+                entitySet="RequestItems"
+                useToolbar="true"
+                showGoOnFB="true"
+                showClearOnFB="true"
+                persistencyKey="SmartFilterBarProcurement"
+                enableBasicSearch="true"
+                basicSearchFieldName="requestedBy"
+                search="onSearch"
+            />
+
+            <smartTable:SmartTable
+                id="smartTableForRequestItems"
+                entitySet="RequestItems"
+                tableType="Table"
+                useVariantManagement="true"
+                useTablePersonalisation="true"
+                header="Request Items"
+                smartFilterId="smartFilterBar"
+                persistencyKey="SmartTableRequests"
+                enableAutoBinding="true"
+                editable="false"
+                showRowCount="true"
+                enableAutoColumnWidth="true"
+                initiallyVisibleFields="ID, ID,parent_ID,productName,quantity,unit"
+            />
+        </Panel>
     </Page>
 </mvc:View>
